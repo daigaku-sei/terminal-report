@@ -1,4 +1,4 @@
-from radioactive_decay import RadioactiveDecay
+from radioactivedecay import RadioactiveDecay
 
 problem = RadioactiveDecay(
     substance='Uranium-238',
