@@ -141,6 +141,6 @@ void reverseArray(int arr[], int size) {
         arr[i] = temp[size - i - 1];
     }
 }
-reverseArray(arr, size);
+reverseArray(arr, arr_size);
 }
 }
