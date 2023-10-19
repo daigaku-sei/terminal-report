@@ -8,7 +8,7 @@
 int
 main (int args, char *argv[])
 {
-  printf ("\nTask1 [Nx1]: clang on Termux\n\n");
+  printf ("\nTask1 [Nx1]: array manipulations \n| clang -lm in Termux \n| gcc -lm in terminal\n\n");
   printf ("T3: real, I3:rnd, M1:inserion\n");
 
   srand (time (0));
