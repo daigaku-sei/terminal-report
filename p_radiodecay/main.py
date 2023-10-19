@@ -1,6 +1,8 @@
 import radioactivedecay as rd
 
-print('Mo99, of 2.0 Bq, after 20.0 hours, get Bq_activities/cumulative')
+print('Welcom to radioactive decay package demo!')
+
+print('\nMo99, of 2.0 Bq, after 20.0 hours, get Bq_activities/cumulative')
 Mo99_t0 = rd.Inventory({'Mo-99': 2.0}, 'Bq')
 Mo99_t1 = Mo99_t0.decay(20.0, 'h')
 print(Mo99_t1.activities('Bq'))
