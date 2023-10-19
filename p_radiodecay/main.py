@@ -1,26 +1,23 @@
-from radioactivedecay import DecayChain
+import radioactivedecay as rd
 
-# Define the decay chain
-decay_chain = DecayChain()
-decay_chain.add_parent("Uranium-238", half_life=4.5e9)
-decay_chain.add_daughter("Thorium-234", branching_ratio=1)
-decay_chain.add_daughter("Radium-226", branching_ratio=0.00055)
-decay_chain.add_daughter("Radon-222", branching_ratio=0.99945)
-decay_chain.add_daughter("Polonium-218", branching_ratio=0.006)
-decay_chain.add_daughter("Lead-214", branching_ratio=0.994)
-decay_chain.add_daughter("Bismuth-214", branching_ratio=1)
-decay_chain.add_daughter("Polonium-214", branching_ratio=0.999998)
-decay_chain.add_daughter("Lead-210", branching_ratio=2e-6)
-decay_chain.add_daughter("Bismuth-210", branching_ratio=1)
-decay_chain.add_daughter("Polonium-210", branching_ratio=1)
+Mo99_t0 = rd.Inventory({'Mo-99': 2.0}, 'Bq')
+Mo99_t1 = Mo99_t0.decay(20.0, 'h')
+Mo99_t1.activities('Bq')
 
-# Set initial activity and time
-initial_activity = 1e6  # Bq
-time = 10  # years
+Mo99_t0.cumulative_decays(20.0, 'h')
 
-# Calculate the activity of each nuclide in the decay chain at the given time
-activity_dict = decay_chain.calculate_activity(initial_activity, time)
+H3_t0 = rd.Inventory({'H-3': 3.0}, 'g')
+H3_t1 = H3_t0.decay(12.32, 'y')
+H3_t1.masses('g')
 
-# Print the activity of each nuclide
-for nuclide, activity in activity_dict.items():
-    print(f"{nuclide}: {activity:.2f} Bq")
+H3_t1.mass_fractions()
+
+C14_t0 = rd.Inventory({'C-14': 3.2E24}, 'num')
+C14_t1 = C14_t0.decay(3000, 'y')
+C14_t1.moles('mol')
+C14_t1.mole_fractions()
+
+Mo99_t0.plot(20, 'd', yunits='Bq')
+
+nuc = rd.Nuclide('Mo-99')
+nuc.plot()
