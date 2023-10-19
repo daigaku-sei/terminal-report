@@ -141,6 +141,7 @@ inception (int arr[], int arr_size)
     for (int i = 0; i < size; i++) {
         arr[i] = temp[size - i - 1];
     }
+    imprinted (arr, arr_size);
   }
   reverseArray(arr, arr_size);
 }
