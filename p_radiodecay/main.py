@@ -1,5 +1,3 @@
-pip install radioactive_decay
-
 from radioactive_decay import RadioactiveDecay
 
 problem = RadioactiveDecay(
