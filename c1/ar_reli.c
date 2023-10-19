@@ -3,7 +3,7 @@
 #include<stdbool.h>
 #include<stdio.h>
 #include<time.h>
-#include"string.h>
+#include<string.h>
 #include"randmagi.c"
 
 /* Fn to fill and get array data:
