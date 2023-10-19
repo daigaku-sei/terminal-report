@@ -1,5 +1,4 @@
 import radioactivedecay as rd
-import matplotlib as plt
 
 print('\nWelcome to radioactive decay package demo!')
 
@@ -23,8 +22,6 @@ print(C14_t1.moles('mol'))
 print(C14_t1.mole_fractions())
 
 Mo99_t0.plot(20, 'd', yunits='Bq')
-plt.savefig('Mo99 after 20 days')
 
 nuc = rd.Nuclide('Mo-99')
 nuc.plot()
-plt.savefig('Mo99 nuclide decay chain')
