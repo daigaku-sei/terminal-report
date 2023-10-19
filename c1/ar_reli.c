@@ -3,10 +3,13 @@
 #include<stdbool.h>
 #include<stdio.h>
 #include<time.h>
+#include"string.h>
 #include"randmagi.c"
 
 /* Fn to fill and get array data:
-min|max|sum|prod|mean|geomean */
+min|max|sum|prod|mean|geomean|guess
+-> found on init of an array
+-> used indent package to format the code*/
 
 void
 introduction (int arr[], int arr_size, int yourguess)
@@ -130,4 +133,14 @@ inception (int arr[], int arr_size)
       arr[j + 1] = key;
     }
   imprinted (arr, arr_size);
+void reverseArray(int arr[], int size) {
+    int temp[size];
+    memcpy(temp, arr, size * sizeof(int));
+    
+    for (int i = 0; i < size; i++) {
+        arr[i] = temp[size - i - 1];
+    }
+}
+reverseArray(arr, size);
+}
 }
