@@ -137,7 +137,7 @@ std::vector<std::vector<double>> transpose(const std::vector<std::vector<double>
 }
 
 // Function to calculate the sum of two matrices
-std::vector<std::vector<int>> sum(const std::vector<std::vector<double>>& matrix1, const std::vector<std::vector<double>>& matrix2) {
+std::vector<std::vector<double>> sum(const std::vector<std::vector<double>>& matrix1, const std::vector<std::vector<double>>& matrix2) {
     std::vector<std::vector<double>> result;
     for (size_t i = 0; i < matrix1.size(); i++) {
         std::vector<double> row;
@@ -150,7 +150,7 @@ std::vector<std::vector<int>> sum(const std::vector<std::vector<double>>& matrix
 }
 
 // Function to calculate the product of two matrices
-std::vector<std::vector<int>> product(const std::vector<std::vector<double>>& matrix1, const std::vector<std::vector<double>>& matrix2) {
+std::vector<std::vector<double>> product(const std::vector<std::vector<double>>& matrix1, const std::vector<std::vector<double>>& matrix2) {
     std::vector<std::vector<double>> result;
     for (size_t i = 0; i < matrix1.size(); i++) {
         std::vector<double> row;
