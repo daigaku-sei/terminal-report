@@ -27,11 +27,11 @@ void fillMatrix(double** matrix, int rows, int cols, double min, double max) {
     }
 }
 
-// Function to print a matrix
+// Function to print a matrix (3 decimals)
 void printMatrix(double** matrix, int rows, int cols) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            printf("%le ", matrix[i][j]);
+            printf("%.3le ", matrix[i][j]);
         }
         printf("\n");
     }
