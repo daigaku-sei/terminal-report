@@ -87,4 +87,5 @@ for i in range(1, len(array)):
 print("\nSorted Array (Ascending):", array)
 
 # Print the sorted array in descending order
-print("Sorted Array (Descending):", array[::-1], end="\n")
+print("Sorted Array (Descending):", array[::-1])
+print("\n")
