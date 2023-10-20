@@ -14,16 +14,39 @@ int main() {
 
     // Ask user for rows and columns of the second matrix
     do {
-        std::cout << "Enter the number of rows for the second matrix: ";
+        std::cout << "Enter the valid number of rows for the second matrix: ";
         std::cin >> rows2;
-        std::cout << "Enter the number of columns for the second matrix: ";
+        std::cout << "Enter the valid number of columns for the second matrix: ";
         std::cin >> cols2;
     } while (rows2 <= 0 || cols2 <= 0);
 
-    // Create matrixes with random data
-    Eigen::MatrixXd matrix1 = Eigen::MatrixXd::Random(rows1, cols1) * 100.0;
-    Eigen::MatrixXd matrix2 = Eigen::MatrixXd::Random(rows2, cols2) * 100.0;
+    Eigen::MatrixXd matrix1(rows1, cols1);
+    Eigen::MatrixXd matrix2(rows2, cols2);
 
+    char choice;
+    std::cout << "Do you want to enter the matrix values manually? (y/n): ";
+    std::cin >> choice;
+
+    if (choice == 'y' || choice == 'Y') {
+        std::cout << "Enter the values for matrix1:\n";
+        for (int i = 0; i < rows1; i++) {
+            for (int j = 0; j < cols1; j++) {
+                std::cin >> matrix1(i, j);
+            }
+        }
+
+        std::cout << "Enter the values for matrix2:\n";
+        for (int i = 0; i < rows2; i++) {
+            for (int j = 0; j < cols2; j++) {
+                std::cin >> matrix2(i, j);
+            }
+        }
+    } else {
+        // Create matrixes with random data
+        matrix1 = Eigen::MatrixXd::Random(rows1, cols1) * 100.0;
+        matrix2 = Eigen::MatrixXd::Random(rows2, cols2) * 100.0;
+    }
+    
     // Get ranks
     int rank1 = matrix1.fullPivLu().rank();
     int rank2 = matrix2.fullPivLu().rank();
