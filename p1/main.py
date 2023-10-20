@@ -1,15 +1,30 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Oct 20 20:58:24 2023
-Used black to autoformat
-Used Spyder code analysis
-
-@author: 325A R
-"""
-
-
 import random
 
+def count_odd_even(arr):
+    odd_count = 0
+    even_count = 0
+    
+    for num in arr:
+        if num % 2 == 0:
+            even_count += 1
+        else:
+            odd_count += 1
+    
+    return odd_count, even_count
+
+def search_value(array):
+    while True:
+        value = input("Enter a value to search in the array (type 666 to exit): ")
+        if value == '666':
+            break
+        try:
+            value = int(value)
+            indexes = [i for i, num in enumerate(array) if num == value]
+            count = len(indexes)
+            print("Indexes:", indexes)
+            print("Count:", count)
+        except ValueError:
+            print("Invalid input. Please enter a valid integer or '666' to exit.")
 
 print("______\n")
 print("\n p1: [9] => T3,I3,M1: array operations on 1x[N] of random int\n")
@@ -25,43 +40,35 @@ while True:
         break
     except ValueError:
         print("That's not an int!")
-        
+
 # Ask user for a number
-number = int(input("Guess a number in -100..100 to be randomed in 1x[N]: "))
+while True:
+    number = input("Guess a number in -100..100 to be randomed in 1x[N]: ")
+    try:
+        number = int(number)
+        break
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
 
 # Create an array of random integers from -100 to 100
 array = [random.randint(-100, 100) for _ in range(size)]
 
+# Calculate the count of odd and even elements in the array
+odd_count, even_count = count_odd_even(array)
+
 # Initialize variables
-SUM = 0
+SUM = sum(array)
 PRODUCT = 1
-min_value = float("inf")
-min_indexes = []
-max_value = float("-inf")
-max_indexes = []
-guess_indexes = []
-GUESS_COUNT = 0
+min_value = min(array)
+min_indexes = [i for i, num in enumerate(array) if num == min_value]
+max_value = max(array)
+max_indexes = [i for i, num in enumerate(array) if num == max_value]
+guess_indexes = [i for i, num in enumerate(array) if num == number]
+GUESS_COUNT = len(guess_indexes)
 
-# Collect data while initializing
-for i, num in enumerate(array):
-    SUM += num
+# Calculate product
+for num in array:
     PRODUCT *= num
-
-    if num < min_value:
-        min_value = num
-        min_indexes = [i]
-    elif num == min_value:
-        min_indexes.append(i)
-
-    if num > max_value:
-        max_value = num
-        max_indexes = [i]
-    elif num == max_value:
-        max_indexes.append(i)
-
-    if num == number:
-        guess_indexes.append(i)
-        GUESS_COUNT += 1
 
 # Print the array
 print("\nArray:", array)
@@ -85,18 +92,14 @@ geometric_mean = PRODUCT ** (1 / len(array))
 print("\nMean:", mean)
 print("Geometric Mean:", geometric_mean)
 
-# Sort the array using insertion sort
-for i in range(1, len(array)):
-    key = array[i]
-    j = i - 1
-    while j >= 0 and array[j] > key:
-        array[j + 1] = array[j]
-        j -= 1
-    array[j + 1] = key
+# Sort the array using the sorted() function
+sorted_array = sorted(array)
 
 # Print the sorted array in ascending order
-print("\nSorted Array (Ascending):", array)
+print("\nSorted Array (Ascending):", sorted_array)
 
 # Print the sorted array in descending order
-print("Sorted Array (Descending):", array[::-1])
-print("\n")
+print("Sorted Array (Descending):", sorted_array[::-1])
+
+# Search for a value in the array until the user types 666
+search_value(array)
