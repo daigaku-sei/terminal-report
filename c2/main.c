@@ -136,6 +136,7 @@ int main() {
     printf("6. Check if matrices are square\n");
     printf("7. Get determinant/trace\n");
     printf("8. Get inverse\n");
+    printf("123. Force exit by option, you can also use CTRL-C\n");
     printf("Enter your option: ");
     scanf("%d", &option);
 
