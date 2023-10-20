@@ -1,5 +1,7 @@
 import random
-
+print("______\n")
+print("\n p1: [9] => T3,I3,M1: array operations on 1x[N] of random int\n")
+print("______")
 # Ask user for a number
 number = int(input("Enter a number: "))
 
