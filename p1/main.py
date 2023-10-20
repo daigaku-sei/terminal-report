@@ -29,7 +29,7 @@ while True:
 print(size)
 
 # Ask user for a number
-number = int(input("Guess a number to be randomed in 1x[N]: "))
+number = int(input("Guess a number in -100..100 to be randomed in 1x[N]: "))
 
 # Create an array of random integers from -100 to 100
 array = [random.randint(-100, 100) for _ in range(size)]
