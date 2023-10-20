@@ -19,7 +19,7 @@ int** createMatrix(int rows, int cols) {
 }
 
 // Function to fill a matrix with random values within a given range
-void fillMatrix(int** matrix, int rows, int cols, int min, int max) {
+void fillMatrix(double** matrix, int rows, int cols, int min, int max) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             matrix[i][j] = getRandomNumber(min, max);
@@ -28,10 +28,10 @@ void fillMatrix(int** matrix, int rows, int cols, int min, int max) {
 }
 
 // Function to print a matrix
-void printMatrix(int** matrix, int rows, int cols) {
+void printMatrix(double** matrix, int rows, int cols) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            printf("%d ", matrix[i][j]);
+            printf("%le ", matrix[i][j]);
         }
         printf("\n");
     }
@@ -43,19 +43,19 @@ int isSquareMatrix(int rows, int cols) {
 }
 
 // Function to calculate the determinant of a square matrix
-int calculateDeterminant(int** matrix, int size) {
+int calculateDeterminant(double** matrix, int size) {
     // Implementation of determinant calculation goes here
     // Return the calculated determinant
 }
 
 // Function to calculate the trace of a square matrix
-int calculateTrace(int** matrix, int size) {
+int calculateTrace(double** matrix, int size) {
     // Implementation of trace calculation goes here
     // Return the calculated trace
 }
 
 // Function to calculate the inverse of a square matrix
-int** calculateInverse(int** matrix, int size) {
+int** calculateInverse(double** matrix, int size) {
     // Implementation of inverse calculation goes here
     // Return the calculated inverse matrix
 }
@@ -81,16 +81,16 @@ int main() {
     
     // Get the range of values from the user
     printf("Enter the minimum value: ");
-    scanf("%d", &min);
+    scanf("%le", &min);
     printf("Enter the maximum value: ");
-    scanf("%d", &max);
+    scanf("%le", &max);
     
     // Create the first matrix
-    int** matrix1 = createMatrix(rows, cols);
+    double** matrix1 = createMatrix(rows, cols);
     fillMatrix(matrix1, rows, cols, min, max);
     
     // Create the second matrix
-    int** matrix2;
+    double** matrix2;
     int sameSize;
     printf("Do you want the second matrix to have the same size as the first matrix? (1 for yes, 0 for no): ");
     scanf("%d", &sameSize);
