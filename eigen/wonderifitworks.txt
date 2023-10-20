@@ -1,0 +1,1 @@
+getting eigen unto terminal linux with 0 sudo
