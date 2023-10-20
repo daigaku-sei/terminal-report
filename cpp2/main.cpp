@@ -1,6 +1,126 @@
 cpp
 #include <iostream>
-#include "matrix_operations.h"
+#include <vector>
+#include <random>
+#include <cmath>
+
+// Function to create a random filled matrix
+std::vector<std::vector<double>> createRandomMatrix(int rows, int cols, double minRange, double maxRange) {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<double> dis(minRange, maxRange);
+
+    std::vector<std::vector<double>> matrix(rows, std::vector<double>(cols));
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            matrix[i][j] = dis(gen);
+        }
+    }
+
+    return matrix;
+}
+
+// Function to print a matrix
+void printMatrix(const std::vector<std::vector<double>>& matrix) {
+    for (const auto& row : matrix) {
+        for (const auto& element : row) {
+            std::cout << element << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
+// Function to check if a matrix is square
+bool isSquareMatrix(const std::vector<std::vector<double>>& matrix) {
+    return matrix.size() == matrix[0].size();
+}
+
+// Function to calculate the determinant of a square matrix
+double calculateDeterminant(const std::vector<std::vector<double>>& matrix) {
+    int n = matrix.size();
+
+    if (n == 1) {
+        return matrix[0][0];
+    }
+
+    double determinant = 0;
+    int sign = 1;
+
+    for (int i = 0; i < n; i++) {
+        std::vector<std::vector<double>> subMatrix(n - 1, std::vector<double>(n - 1));
+
+        for (int j = 1; j < n; j++) {
+            int k = 0;
+            for (int l = 0; l < n; l++) {
+                if (l != i) {
+                    subMatrix[j - 1][k++] = matrix[j][l];
+                }
+            }
+        }
+
+        determinant += sign * matrix[0][i] * calculateDeterminant(subMatrix);
+        sign = -sign;
+    }
+
+    return determinant;
+}
+
+// Function to calculate the trace of a square matrix
+double calculateTrace(const std::vector<std::vector<double>>& matrix) {
+    int n = matrix.size();
+    double trace = 0;
+
+    for (int i = 0; i < n; i++) {
+        trace += matrix[i][i];
+    }
+
+    return trace;
+}
+
+// Function to calculate the inverse of a square matrix
+std::vector<std::vector<double>> calculateInverse(const std::vector<std::vector<double>>& matrix) {
+    int n = matrix.size();
+
+    std::vector<std::vector<double>> inverse(n, std::vector<double>(n));
+    std::vector<std::vector<double>> augmentedMatrix(n, std::vector<double>(2 * n));
+
+    // Create augmented matrix [matrix | identity matrix]
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            augmentedMatrix[i][j] = matrix[i][j];
+            augmentedMatrix[i][j + n] = (i == j) ? 1 : 0;
+        }
+    }
+
+    // Perform row operations to get the inverse
+    for (int i = 0; i < n; i++) {
+        double pivot = augmentedMatrix[i][i];
+
+        for (int j = 0; j < 2 * n; j++) {
+            augmentedMatrix[i][j] /= pivot;
+        }
+
+        for (int j = 0; j < n; j++) {
+            if (j != i) {
+                double factor = augmentedMatrix[j][i];
+
+                for (int k = 0; k < 2 * n; k++) {
+                    augmentedMatrix[j][k] -= factor * augmentedMatrix[i][k];
+                }
+            }
+        }
+    }
+
+    // Extract the inverse matrix from the augmented matrix
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            inverse[i][j] = augmentedMatrix[i][j + n];
+        }
+    }
+
+    return inverse;
+}
 
 int main() {
     int option = 1;
