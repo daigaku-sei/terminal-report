@@ -10,8 +10,8 @@ double getRandomNumber(double min, double max) {
 }
 
 // Function to allocate memory for a matrix
-int** createMatrix(int rows, int cols) {
-    int** matrix = (int**)malloc(rows * sizeof(int*));
+double** createMatrix(int rows, int cols) {
+    double** matrix = (int**)malloc(rows * sizeof(int*));
     for (int i = 0; i < rows; i++) {
         matrix[i] = (int*)malloc(cols * sizeof(int));
     }
@@ -19,7 +19,7 @@ int** createMatrix(int rows, int cols) {
 }
 
 // Function to fill a matrix with random values within a given range
-void fillMatrix(double** matrix, int rows, int cols, int min, int max) {
+void fillMatrix(double** matrix, int rows, int cols, double min, double max) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             matrix[i][j] = getRandomNumber(min, max);
