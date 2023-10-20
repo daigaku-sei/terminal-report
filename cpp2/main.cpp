@@ -1,3 +1,4 @@
+cpp
 #include <iostream>
 #include <Eigen/Dense>
 
@@ -38,14 +39,14 @@ int main() {
     Eigen::MatrixXd inverse1, inverse2;
     bool invertible1 = false, invertible2 = false;
 
-    if (matrix1.rows() == matrix1.cols()) {
+    if (rows1 == cols1) {
         determinant1 = matrix1.determinant();
         trace1 = matrix1.trace();
         inverse1 = matrix1.inverse();
         invertible1 = true;
     }
 
-    if (matrix2.rows() == matrix2.cols()) {
+    if (rows2 == cols2) {
         determinant2 = matrix2.determinant();
         trace2 = matrix2.trace();
         inverse2 = matrix2.inverse();
