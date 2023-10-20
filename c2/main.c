@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include <time.h>
 
-// Function to generate a random number within a given range
-int getRandomNumber(int min, int max) {
-    return (rand() % (max - min + 1)) + min;
+// Function to generate a random double within a given range
+double getRandomNumber(double min, double max) {
+    double random = ((double)rand()) / RAND_MAX;
+    double range = max - min;
+    return (random * range) + min;
 }
 
 // Function to allocate memory for a matrix
