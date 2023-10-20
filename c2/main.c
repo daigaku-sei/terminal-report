@@ -171,6 +171,9 @@ int main() {
             case 8:
                 // Implementation for getting inverse goes here
                 break;
+            case 123:
+                exit();
+                break;
             default:
                 printf("Invalid option.\n");
                 break;
