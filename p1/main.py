@@ -24,10 +24,8 @@ while True:
             continue
         break
     except ValueError:
-        print("That's not an int!")  
-# else all is good, size is >  0 and an integer
-print(size)
-
+        print("That's not an int!")
+        
 # Ask user for a number
 number = int(input("Guess a number in -100..100 to be randomed in 1x[N]: "))
 
@@ -66,7 +64,7 @@ for i, num in enumerate(array):
         GUESS_COUNT += 1
 
 # Print the array
-print("Array:", array)
+print("\nArray:", array)
 
 # Print the properties
 print("Sum:", SUM)
