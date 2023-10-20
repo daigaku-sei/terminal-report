@@ -11,9 +11,9 @@ double getRandomNumber(double min, double max) {
 
 // Function to allocate memory for a matrix
 double** createMatrix(int rows, int cols) {
-    double** matrix = (int**)malloc(rows * sizeof(int*));
+    double** matrix = (double**)malloc(rows * sizeof(int*));
     for (int i = 0; i < rows; i++) {
-        matrix[i] = (int*)malloc(cols * sizeof(int));
+        matrix[i] = (double*)malloc(cols * sizeof(int));
     }
     return matrix;
 }
