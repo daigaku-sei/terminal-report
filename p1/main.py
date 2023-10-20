@@ -84,7 +84,7 @@ mean = SUM / len(array)
 geometric_mean = PRODUCT ** (1 / len(array))
 
 # Print mean and geometric mean
-print("Mean:", mean)
+print("\nMean:", mean)
 print("Geometric Mean:", geometric_mean)
 
 # Sort the array using insertion sort
