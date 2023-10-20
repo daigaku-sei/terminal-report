@@ -74,8 +74,8 @@ for num in array:
 print("\nArray:", array)
 
 # Print the properties
-print("Sum:", SUM)
-print("Product:", PRODUCT)
+print("Sum:", format(SUM, ','))
+print("Product:", format(PRODUCT, ','))
 print("\nMinimum Value:", min_value)
 print("Minimum Indexes:", min_indexes)
 print("Maximum Value:", max_value)
