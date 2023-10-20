@@ -136,6 +136,36 @@ std::vector<std::vector<double>> transpose(const std::vector<std::vector<double>
     return transposedMatrix;
 }
 
+// Function to calculate the sum of two matrices
+std::vector<std::vector<int>> sum(const std::vector<std::vector<int>>& matrix1, const std::vector<std::vector<int>>& matrix2) {
+    std::vector<std::vector<int>> result;
+    for (size_t i = 0; i < matrix1.size(); i++) {
+        std::vector<int> row;
+        for (size_t j = 0; j < matrix1[i].size(); j++) {
+            row.push_back(matrix1[i][j] + matrix2[i][j]);
+        }
+        result.push_back(row);
+    }
+    return result;
+}
+
+// Function to calculate the product of two matrices
+std::vector<std::vector<int>> product(const std::vector<std::vector<int>>& matrix1, const std::vector<std::vector<int>>& matrix2) {
+    std::vector<std::vector<int>> result;
+    for (size_t i = 0; i < matrix1.size(); i++) {
+        std::vector<int> row;
+        for (size_t j = 0; j < matrix2[0].size(); j++) {
+            int sum = 0;
+            for (size_t k = 0; k < matrix1[i].size(); k++) {
+                sum += matrix1[i][k] * matrix2[k][j];
+            }
+            row.push_back(sum);
+        }
+        result.push_back(row);
+    }
+    return result;
+}
+
 
 int main() {
     int option = 1;
