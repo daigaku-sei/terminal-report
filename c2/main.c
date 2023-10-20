@@ -172,6 +172,8 @@ int main() {
                 printf("Invalid option.\n");
                 break;
         }
+        printf("Enter your option: ");
+        scanf("%d", &option);
     }
     // Free the memory allocated for the matrices
     for (int i = 0; i < rows; i++) {
