@@ -1,6 +1,8 @@
 import numpy as np
 
+print("______\n")
 print("\n p2: [9] => T6: matrix operations on 2x[M]x[N] of double\n")
+print("______")
 rows1, cols1 = 0, 0
 while rows1 <= 0 or cols1 <= 0:
     rows1 = int(input("Enter the number of rows for the first matrix: "))
