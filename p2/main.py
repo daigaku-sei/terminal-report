@@ -58,11 +58,11 @@ print("Array:", array)
 # Print the properties
 print("Sum:", SUM)
 print("Product:", PRODUCT)
-print("Minimum Value:", min_value)
+print("\nMinimum Value:", min_value)
 print("Minimum Indexes:", min_indexes)
 print("Maximum Value:", max_value)
 print("Maximum Indexes:", max_indexes)
-print("Number", number, "Presence:")
+print("\nNumber", number, "Presence:")
 print("Indexes:", guess_indexes)
 print("Count:", GUESS_COUNT)
 
@@ -84,7 +84,7 @@ for i in range(1, len(array)):
     array[j + 1] = key
 
 # Print the sorted array in ascending order
-print("Sorted Array (Ascending):", array)
+print("\nSorted Array (Ascending):", array)
 
 # Print the sorted array in descending order
 print("Sorted Array (Descending):", array[::-1])
