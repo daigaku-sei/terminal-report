@@ -1,3 +1,4 @@
+cpp
 #include <iostream>
 #include <Eigen/Dense>
 
@@ -32,20 +33,24 @@ int main() {
     Eigen::MatrixXd transpose1 = matrix1.transpose();
     Eigen::MatrixXd transpose2 = matrix2.transpose();
 
+    // Check if matrices are square
+    bool square1 = (rows1 == cols1);
+    bool square2 = (rows2 == cols2);
+
     // Determinant, trace, and inverse (if possible)
     double determinant1 = 0.0, determinant2 = 0.0;
     double trace1 = 0.0, trace2 = 0.0;
     Eigen::MatrixXd inverse1, inverse2;
     bool invertible1 = false, invertible2 = false;
 
-    if (rows1 == cols1) {
+    if (square1) {
         determinant1 = matrix1.determinant();
         trace1 = matrix1.trace();
         inverse1 = matrix1.inverse();
         invertible1 = true;
     }
 
-    if (rows2 == cols2) {
+    if (square2) {
         determinant2 = matrix2.determinant();
         trace2 = matrix2.trace();
         inverse2 = matrix2.inverse();
@@ -78,20 +83,20 @@ int main() {
     std::cout << "Transpose of Matrix 1:\n" << transpose1 << std::endl;
     std::cout << "Transpose of Matrix 2:\n" << transpose2 << std::endl;
 
-    if (invertible1) {
+    if (square1) {
         std::cout << "Determinant of Matrix 1: " << determinant1 << std::endl;
         std::cout << "Trace of Matrix 1: " << trace1 << std::endl;
         std::cout << "Inverse of Matrix 1:\n" << inverse1 << std::endl;
     } else {
-        std::cout << "Matrix 1 is not invertible." << std::endl;
+        std::cout << "Matrix 1 is not square." << std::endl;
     }
 
-    if (invertible2) {
+    if (square2) {
         std::cout << "Determinant of Matrix 2: " << determinant2 << std::endl;
         std::cout << "Trace of Matrix 2: " << trace2 << std::endl;
         std::cout << "Inverse of Matrix 2:\n" << inverse2 << std::endl;
     } else {
-        std::cout << "Matrix 2 is not invertible." << std::endl;
+        std::cout << "Matrix 2 is not square." << std::endl;
     }
 
     std::cout << "Are the matrices equal? " << (equal ? "Yes" : "No") << std::endl;
