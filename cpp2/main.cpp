@@ -60,7 +60,7 @@ int main() {
     Eigen::MatrixXd sum, product;
     bool addable = (matrix1.rows() == matrix2.rows() && matrix1.cols() == matrix2.cols());
     // Check if matrices are equal
-    bool equal = (addable && matrix1 == matrix2)
+    bool equal = (addable && matrix1 == matrix2);
     
     bool multipliable = (matrix1.cols() == matrix2.rows());
 
