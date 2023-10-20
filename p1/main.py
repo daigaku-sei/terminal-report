@@ -88,9 +88,9 @@ print("Count:", GUESS_COUNT)
 mean = SUM / len(array)
 geometric_mean = PRODUCT ** (1 / len(array))
 
-# Print mean and geometric mean
-print("\nMean:", mean)
-print("Geometric Mean:", format(geometric_mean, ','))
+# Print (pretty) mean and geometric mean
+print("\nMean: {:.3f}".format(mean))
+print("Geometric Mean: {:.3f}".format(geometric_mean))
 
 # Sort the array using the sorted() function
 sorted_array = sorted(array)
