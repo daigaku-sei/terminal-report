@@ -3,7 +3,7 @@ print("______\n")
 print("\n p1: [9] => T3,I3,M1: array operations on 1x[N] of random int\n")
 print("______")
 # Ask user for a number
-number = int(input("Enter a number: "))
+number = int(input("Guess a number to be randomed (-100 to 100): "))
 
 # Create an array of random integers from -100 to 100
 array = [random.randint(-100, 100) for _ in range(10)]
