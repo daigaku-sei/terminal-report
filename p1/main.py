@@ -15,11 +15,24 @@ print("______\n")
 print("\n p1: [9] => T3,I3,M1: array operations on 1x[N] of random int\n")
 print("______")
 
+while True:
+    number = input("Enter N size number of elements for 1x[N] array: ")
+    try:
+        size = int(number)
+        if size <= 0:  # if not a positive int print message and ask for input again
+            print("Sorry, input must be a positive integer, try again")
+            continue
+        break
+    except ValueError:
+        print("That's not an int!")  
+# else all is good, size is >  0 and an integer
+print(size)
+
 # Ask user for a number
-number = int(input("Enter a number: "))
+number = int(input("Guess a number to be randomed in 1x[N]: "))
 
 # Create an array of random integers from -100 to 100
-array = [random.randint(-100, 100) for _ in range(10)]
+array = [random.randint(-100, 100) for _ in range(size)]
 
 # Initialize variables
 SUM = 0
