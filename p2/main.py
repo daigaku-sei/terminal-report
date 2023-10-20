@@ -1,91 +1,100 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Oct 20 20:58:24 2023
-Used black to autoformat
-Used Spyder code analysis
-
-@author: 325A R
-"""
-
-
-import random
-
+import numpy as np
 
 print("______\n")
-print("\n p1: [9] => T3,I3,M1: array operations on 1x[N] of random int\n")
+print("\n p2: [9] => T6: matrix operations on 2x[M]x[N] of double\n")
 print("______")
 
-# Ask user for a number
-number = int(input("Enter a number: "))
+rows1, cols1 = 0, 0
+while rows1 <= 0 or cols1 <= 0:
+    rows1 = int(input("Enter the number of rows for the first matrix: "))
+    cols1 = int(input("Enter the number of columns for the first matrix: "))
 
-# Create an array of random integers from -100 to 100
-array = [random.randint(-100, 100) for _ in range(10)]
+rows2, cols2 = 0, 0
+while rows2 <= 0 or cols2 <= 0:
+    rows2 = int(input("Enter the valid number of rows for the second matrix: "))
+    cols2 = int(input("Enter the valid number of columns for the second matrix: "))
 
-# Initialize variables
-SUM = 0
-PRODUCT = 1
-min_value = float("inf")
-min_indexes = []
-max_value = float("-inf")
-max_indexes = []
-guess_indexes = []
-GUESS_COUNT = 0
+matrix1 = np.zeros((rows1, cols1))
+matrix2 = np.zeros((rows2, cols2))
 
-# Collect data while initializing
-for i, num in enumerate(array):
-    SUM += num
-    PRODUCT *= num
+choice = input("Do you want to enter the matrix values manually? (y/n): ")
+if choice.lower() == 'y':
+    print("Enter the values for matrix1:")
+    for i in range(rows1):
+        for j in range(cols1):
+            matrix1[i, j] = float(input())
 
-    if num < min_value:
-        min_value = num
-        min_indexes = [i]
-    elif num == min_value:
-        min_indexes.append(i)
+    print("Enter the values for matrix2:")
+    for i in range(rows2):
+        for j in range(cols2):
+            matrix2[i, j] = float(input())
+else:
+    matrix1 = np.random.randn(rows1, cols1) * 100.0
+    matrix2 = np.random.randn(rows2, cols2) * 100.0
 
-    if num > max_value:
-        max_value = num
-        max_indexes = [i]
-    elif num == max_value:
-        max_indexes.append(i)
+rank1 = np.linalg.matrix_rank(matrix1)
+rank2 = np.linalg.matrix_rank(matrix2)
+transpose1 = matrix1.T
+transpose2 = matrix2.T
+square1 = (rows1 == cols1)
+square2 = (rows2 == cols2)
+determinant1, determinant2 = 0.0, 0.0
+trace1, trace2 = 0.0, 0.0
+inverse1, inverse2 = None, None
+invertible1, invertible2 = False, False
 
-    if num == number:
-        guess_indexes.append(i)
-        GUESS_COUNT += 1
+if square1:
+    determinant1 = np.linalg.det(matrix1)
+    trace1 = np.trace(matrix1)
+    inverse1 = np.linalg.inv(matrix1)
+    invertible1 = True
 
-# Print the array
-print("Array:", array)
+if square2:
+    determinant2 = np.linalg.det(matrix2)
+    trace2 = np.trace(matrix2)
+    inverse2 = np.linalg.inv(matrix2)
+    invertible2 = True
 
-# Print the properties
-print("Sum:", SUM)
-print("Product:", PRODUCT)
-print("\nMinimum Value:", min_value)
-print("Minimum Indexes:", min_indexes)
-print("Maximum Value:", max_value)
-print("Maximum Indexes:", max_indexes)
-print("\nNumber", number, "Presence:")
-print("Indexes:", guess_indexes)
-print("Count:", GUESS_COUNT)
+sum_matrix, product = None, None
+addable = (matrix1.shape == matrix2.shape)
+equal = (addable and np.array_equal(matrix1, matrix2))
+multipliable = (matrix1.shape[1] == matrix2.shape[0])
 
-# Calculate mean and geometric mean
-mean = SUM / len(array)
-geometric_mean = PRODUCT ** (1 / len(array))
+if addable:
+    sum_matrix = matrix1 + matrix2
 
-# Print mean and geometric mean
-print("Mean:", mean)
-print("Geometric Mean:", geometric_mean)
+if multipliable:
+    product = np.dot(matrix1, matrix2)
 
-# Sort the array using insertion sort
-for i in range(1, len(array)):
-    key = array[i]
-    j = i - 1
-    while j >= 0 and array[j] > key:
-        array[j + 1] = array[j]
-        j -= 1
-    array[j + 1] = key
+print("Matrix 1:\n", matrix1)
+print("Matrix 2:\n", matrix2)
+print("Rank of Matrix 1:", rank1)
+print("Rank of Matrix 2:", rank2)
+print("Transpose of Matrix 1:\n", transpose1)
+print("Transpose of Matrix 2:\n", transpose2)
 
-# Print the sorted array in ascending order
-print("\nSorted Array (Ascending):", array)
+if square1:
+    print("Determinant of Matrix 1:", determinant1)
+    print("Trace of Matrix 1:", trace1)
+    print("Inverse of Matrix 1:\n", inverse1)
+else:
+    print("Matrix 1 is not square.")
 
-# Print the sorted array in descending order
-print("Sorted Array (Descending):", array[::-1])
-print("\n")
+if square2:
+    print("Determinant of Matrix 2:", determinant2)
+    print("Trace of Matrix 2:", trace2)
+    print("Inverse of Matrix 2:\n", inverse2)
+else:
+    print("Matrix 2 is not square.")
+
+print("Are the matrices equal?", "Yes" if equal else "No")
+
+if addable:
+    print("Sum of Matrix 1 and Matrix 2:\n", sum_matrix)
+else:
+    print("Matrices cannot be added.")
+
+if multipliable:
+    print("Product of Matrix 1 and Matrix 2:\n", product)
+else:
+    print("Matrices cannot be multiplied.")
