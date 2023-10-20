@@ -62,7 +62,7 @@ int** calculateInverse(int** matrix, int size) {
 
 int main() {
     int rows, cols;
-    int min, max;
+    double min, max;
     
     // Get the size of the matrices from the user
     printf("Enter the number of rows: ");
