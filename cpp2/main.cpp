@@ -57,7 +57,7 @@ int main() {
     }
 
     // Check if matrices are equal
-    bool equal = (matrix1 == matrix2);
+    bool equal = (if (addable) {matrix1 == matrix2})
 
     // Get sum and product (if possible)
     Eigen::MatrixXd sum, product;
