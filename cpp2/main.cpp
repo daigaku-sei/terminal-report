@@ -121,6 +121,22 @@ std::vector<std::vector<double>> calculateInverse(const std::vector<std::vector<
     return inverse;
 }
 
+std::vector<std::vector<double>> transpose(const std::vector<std::vector<double>>& matrix) {
+    int rows = matrix.size();
+    int cols = matrix[0].size();
+
+    std::vector<std::vector<double>> transposedMatrix(cols, std::vector<double>(rows));
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            transposedMatrix[j][i] = matrix[i][j];
+        }
+    }
+
+    return transposedMatrix;
+}
+
+
 int main() {
     int option = 1;
     std::vector<std::vector<double>> matrix1, matrix2;
