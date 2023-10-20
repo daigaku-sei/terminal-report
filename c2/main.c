@@ -136,42 +136,43 @@ int main() {
     printf("8. Get inverse\n");
     printf("Enter your option: ");
     scanf("%d", &option);
-    
-    switch (option) {
-        case 1:
-            // Implementation for changing value in a certain cell goes here
-            break;
-        case 2:
-            // Implementation for rerandomizing the matrices goes here
-            break;
-        case 3:
-            // Implementation for rerandomizing one matrix goes here
-            break;
-        case 4:
-            // Implementation for getting rank goes here
-            break;
-        case 5:
-            // Implementation for transpose option goes here
-            break;
-        case 6:
-            // Check if matrices are square
-            if (isSquareMatrix(rows, cols)) {
-                printf("Both matrices are square.\n");
-            } else {
-                printf("Both matrices are not square.\n");
-            }
-            break;
-        case 7:
-            // Implementation for getting determinant/trace goes here
-            break;
-        case 8:
-            // Implementation for getting inverse goes here
-            break;
-        default:
-            printf("Invalid option.\n");
-            break;
+
+    while (option) {
+        switch (option) {
+            case 1:
+                // Implementation for changing value in a certain cell goes here
+                break;
+            case 2:
+                // Implementation for rerandomizing the matrices goes here
+                break;
+            case 3:
+                // Implementation for rerandomizing one matrix goes here
+                break;
+            case 4:
+                // Implementation for getting rank goes here
+                break;
+            case 5:
+                // Implementation for transpose option goes here
+                break;
+            case 6:
+                // Check if matrices are square
+                if (isSquareMatrix(rows, cols)) {
+                    printf("Both matrices are square.\n");
+                } else {
+                    printf("Both matrices are not square.\n");
+                }
+                break;
+            case 7:
+                // Implementation for getting determinant/trace goes here
+                break;
+            case 8:
+                // Implementation for getting inverse goes here
+                break;
+            default:
+                printf("Invalid option.\n");
+                break;
+        }
     }
-    
     // Free the memory allocated for the matrices
     for (int i = 0; i < rows; i++) {
         free(matrix1[i]);
