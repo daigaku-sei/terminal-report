@@ -28,14 +28,14 @@ int main() {
     std::cin >> choice;
 
     if (choice == 'y' || choice == 'Y') {
-        std::cout << "Enter the values for matrix1:\n";
+        std::cout << "Enter the values 1 per line & hit enter for matrix1:\n";
         for (int i = 0; i < rows1; i++) {
             for (int j = 0; j < cols1; j++) {
                 std::cin >> matrix1(i, j);
             }
         }
 
-        std::cout << "Enter the values for matrix2:\n";
+        std::cout << "Enter the values 1 per line & hit enter for matrix2:\n";
         for (int i = 0; i < rows2; i++) {
             for (int j = 0; j < cols2; j++) {
                 std::cin >> matrix2(i, j);
