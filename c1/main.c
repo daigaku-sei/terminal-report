@@ -9,9 +9,9 @@
 int
 main (int args, char *argv[])
 {
-  print("______\n")
-  print("\n c1: [9] => T3,I3,M1: array operations on [N]x1 of random int\n")
-  print("______")
+  printf("______\n");
+  printf("\n c1: [9] => T3,I3,M1: array operations on [N]x1 of random int\n");
+  printf("______");
 
   srand (time (0));
   printf ("Try to guess rnd number, \
