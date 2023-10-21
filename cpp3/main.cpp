@@ -38,6 +38,27 @@ int main() {
     int m, n;
 
     while (true) {
+        std::cout << "Enter the value of n (line number to move): ";
+
+        // Check if the input is a valid integer
+        if (!(std::cin >> n)) {
+            std::cout << "Invalid input. Please enter a number." << std::endl;
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
+        }
+
+        // Check if the user wants to exit
+        if (n == 666) {
+            break;
+        }
+
+        // Check if the line number is out of bounds
+        if (n < 1 || n > numLines) {
+            std::cout << "Invalid line number. Please enter a number between 1 and " << numLines << "." << std::endl;
+            continue;
+        }
+        
         std::cout << "Enter the value of m (line number to move after): ";
 
         // Check if the input is a valid integer
@@ -59,29 +80,8 @@ int main() {
             continue;
         }
 
-        std::cout << "Enter the value of n (line number to move): ";
-
-        // Check if the input is a valid integer
-        if (!(std::cin >> n)) {
-            std::cout << "Invalid input. Please enter a number." << std::endl;
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            continue;
-        }
-
-        // Check if the user wants to exit
-        if (n == 666) {
-            break;
-        }
-
-        // Check if the line number is out of bounds
-        if (n < 1 || n > numLines) {
-            std::cout << "Invalid line number. Please enter a number between 1 and " << numLines << "." << std::endl;
-            continue;
-        }
-
         // Check if n is already after m
-        if (n == m || n == m + 1) {
+        if (n >= m) {
             std::cout << "Line " << n << " is already after line " << m << "." << std::endl;
             continue;
         }
@@ -93,15 +93,15 @@ int main() {
 
         // Move the lines and write to the temporary file
         while (std::getline(readFile, line)) {
-            if (currentLine == m) {
-                writeFile << line << std::endl;
-            } else if (currentLine != n) {
+            if (currentLine != n) {
                 writeFile << line << std::endl;
             }
 
-            if (currentLine == m + 1) {
+            if (currentLine == m) {
                 writeFile << "Line " << n << std::endl;
             }
+
+            writeFile << line << std::endl;
 
             currentLine++;
         }
