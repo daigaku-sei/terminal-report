@@ -144,8 +144,9 @@ inception (int arr[], int arr_size)
     imprinted (arr, arr_size);
   }
   reverseArray(arr, arr_size);
+}
 
-  void searchArray(int arr[], int size, int num) {
+void searchArray(int arr[], int size, int num) {
     int indexes[size];
     int count = 0;
 
@@ -164,7 +165,3 @@ inception (int arr[], int arr_size)
     }
     printf("\nCount: %d\n", count);
   }
-
- 
-}
-
