@@ -94,7 +94,7 @@ if square2:
 else:
     print("\nMatrix 2 is not square.")
 
-print("Are the matrices equal?", "Yes" if equal else "No")
+print("\nAre the matrices equal?", "Yes" if equal else "No")
 
 if addable:
     print("Sum of Matrix 1 and Matrix 2:\n", sum_matrix)
