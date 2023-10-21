@@ -144,5 +144,27 @@ inception (int arr[], int arr_size)
     imprinted (arr, arr_size);
   }
   reverseArray(arr, arr_size);
+
+  void searchArray(int arr[], int size, int num) {
+    int indexes[size];
+    int count = 0;
+
+    // Search for the number in the array
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == num) {
+            indexes[count] = i;
+            count++;
+        }
+    }
+
+    // Print the indexes and count
+    printf("Indexes: ");
+    for (int i = 0; i < count; i++) {
+        printf("%d ", indexes[i]);
+    }
+    printf("\nCount: %d\n", count);
+  }
+
+ 
 }
 
