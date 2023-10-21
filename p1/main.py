@@ -70,18 +70,7 @@ GUESS_COUNT = len(guess_indexes)
 for num in array:
     PRODUCT *= num
 
-# Print the array
-print("\nArray:", array)
-
-# Print the properties
-print("Sum:", format(SUM, ','))
-print("Product:", format(PRODUCT, ','))
-
-print("\nMinimum Value:", min_value)
-print("Minimum Indexes:", min_indexes)
-print("Maximum Value:", max_value)
-print("Maximum Indexes:", max_indexes)
-
+# Luck?
 print("\nNumber", number, "Presence:")
 print("Indexes:", guess_indexes)
 print("Count:", GUESS_COUNT)
@@ -90,19 +79,53 @@ if GUESS_COUNT:
 else:
     print("Better luck next time!")
 
+# Print the array
+print("\nOriginal array:", array)
+
+print("\nI. min|MAX\nMinimum Value:", min_value)
+print("Minimum Indexes:", min_indexes)
+print("Maximum Value:", max_value)
+print("Maximum Indexes:", max_indexes)
+
+# Print the properties
+print("\nII. +|*\nSum:", format(SUM, ','))
+print("Product:", format(PRODUCT, ','))
+
 # Calculate mean and geometric mean
 mean = SUM / len(array)
 geometric_mean = PRODUCT ** (1 / len(array))
 
 # Print (pretty) mean and geometric mean
-print("\nMean: {:.3f}".format(mean))
+print("\nIII. mean|geomean\nMean: {:.3f}".format(mean))
 print("Geometric Mean: {:.3f}".format(geometric_mean))
 
+# Print odd and even count
+print("\nIV. odd|even\nOdd count:", odd_count)
+print("Even count:", even_count)
+
 # Sort the array using the sorted() function
-sorted_array = sorted(array)
+# sorted_array = in_serted(array)
+
+# Sort by insertion fn
+def insertion_sort(arr):
+    arr_size = len(arr)
+	len(set(arr)) <= 1:
+        print("Nothing to sort here!")
+		return arr # If the array has 0 or 1 element, it is already sorted, so return
+	for i in range(1, arr_size): # Iterate over the array starting from the second element
+		key = arr[i] # Store the current element as the key to be inserted in the right position
+		j = i-1
+		while j >= 0 and key < arr[j]: # Move elements greater than key one position ahead
+			arr[j+1] = arr[j] # Shift elements to the right
+			j -= 1
+		arr[j+1] = key # Insert the key in the correct position
+    return arr
+
+# Use custom (by insertion) sort fn
+sorted_array = insertion_sort(array)
 
 # Print the sorted array in ascending order
-print("\nSorted Array (Ascending):", sorted_array)
+print("\nV. sort by insertion\nSorted Array (Ascending):", sorted_array)
 
 # Print the sorted array in descending order
 print("Sorted Array (Descending):", sorted_array[::-1])
