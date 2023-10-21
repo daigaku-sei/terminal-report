@@ -46,14 +46,15 @@ invertible1, invertible2 = False, False
 if square1:
     determinant1 = np.linalg.det(matrix1)
     trace1 = np.trace(matrix1)
-    inverse1 = np.linalg.inv(matrix1)
-    invertible1 = True
-
+    if determinant1 !=0:
+        inverse1 = np.linalg.inv(matrix1)
+        invertible1 = True
 if square2:
     determinant2 = np.linalg.det(matrix2)
     trace2 = np.trace(matrix2)
-    inverse2 = np.linalg.inv(matrix2)
-    invertible2 = True
+    if determinant2 !=0:
+        inverse2 = np.linalg.inv(matrix1)
+        invertible2 = True
 
 sum_matrix, product = None, None
 addable = (matrix1.shape == matrix2.shape)
@@ -74,16 +75,22 @@ print("Transpose of Matrix 1:\n", transpose1)
 print("Transpose of Matrix 2:\n", transpose2)
 
 if square1:
-    print("Determinant of Matrix 1:", determinant1)
+    print("\nDeterminant of Matrix 1:", determinant1)
     print("Trace of Matrix 1:", trace1)
-    print("Inverse of Matrix 1:\n", inverse1)
+    if invertible1:
+        print("Inverse of Matrix 1:\n", inverse2)
+    else:
+        print("Matrix 1 is not invertible.")
 else:
     print("Matrix 1 is not square.")
 
 if square2:
-    print("Determinant of Matrix 2:", determinant2)
+    print("\nDeterminant of Matrix 2:", determinant2)
     print("Trace of Matrix 2:", trace2)
-    print("Inverse of Matrix 2:\n", inverse2)
+    if invertible2:
+        print("Inverse of Matrix 2:\n", inverse2)
+    else:
+        print("Matrix 2 is not invertible.")
 else:
     print("Matrix 2 is not square.")
 
