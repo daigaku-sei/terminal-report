@@ -119,7 +119,7 @@ int main() {
         std::cout << "Trace of Matrix 2: " << trace2 << std::endl;
         if (invertible2) std::cout << "Inverse of Matrix 2:\n" << inverse2 << std::endl;
             else  std::cout << "Matrix 2 is not invertible." << std::endl;
-    } else {
+    } else
         std::cout << "Matrix 2 is not square." << std::endl;
     }
 
