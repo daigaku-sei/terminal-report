@@ -68,15 +68,15 @@ int main() {
     if (square1) {
         determinant1 = matrix1.determinant();
         trace1 = matrix1.trace();
-        if (determinant1 != 0) inverse1 = matrix1.inverse();
-        invertible1 = true;
+        if (determinant1 != 0) {inverse1 = matrix1.inverse();
+        invertible1 = true;}
     }
 
     if (square2) {
         determinant2 = matrix2.determinant();
         trace2 = matrix2.trace();
-        if (determinant2 != 0) inverse2 = matrix2.inverse();
-        invertible2 = true;
+        if (determinant2 != 0) {inverse2 = matrix2.inverse();
+        invertible2 = true;}
     }
 
     // Get sum and product (if possible)
