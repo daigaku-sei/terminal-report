@@ -3,25 +3,30 @@
 #include <cstdlib>
 #include <ctime>
 #include <limits>
+#include <vector>
+#include <algorithm>
 
 int main() {
     std::ofstream file("random_file.txt"); // Create a file
-
     // Check if the file is successfully opened
     if (!file) {
         std::cout << "Error creating the file." << std::endl;
         return 1;
     }
-
     // Generate a random number of lines (between 5 and 10)
     std::srand(std::time(nullptr));
     int numLines = std::rand() % 6 + 5;
-
-    // Fill the file with random lines
+    // Fill the vector with random lines
+    std::vector<std::string> lines;
     for (int i = 1; i <= numLines; i++) {
-        file << "Line " << i << std::endl;
+        lines.push_back("Line " + std::to_string(i));
     }
-
+    // Shuffle the lines
+    std::random_shuffle(lines.begin(), lines.end());
+    // Write the shuffled lines to the file
+    for (const std::string& line : lines) {
+        file << line << std::endl;
+    }
     file.close(); // Close the file
 
     // Read and display the contents of the file
@@ -35,30 +40,9 @@ int main() {
 
     readFile.close(); // Close the file
 
-    int m, n;
+    int n, m;
 
     while (true) {
-        std::cout << "Enter the value of m (line number to move after): ";
-
-        // Check if the input is a valid integer
-        if (!(std::cin >> m)) {
-            std::cout << "Invalid input. Please enter a number." << std::endl;
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            continue;
-        }
-
-        // Check if the user wants to exit
-        if (m == 666) {
-            break;
-        }
-
-        // Check if the line number is out of bounds
-        if (m < 1 || m > numLines) {
-            std::cout << "Invalid line number. Please enter a number between 1 and " << numLines << "." << std::endl;
-            continue;
-        }
-
         std::cout << "Enter the value of n (line number to move): ";
 
         // Check if the input is a valid integer
@@ -76,6 +60,27 @@ int main() {
 
         // Check if the line number is out of bounds
         if (n < 1 || n > numLines) {
+            std::cout << "Invalid line number. Please enter a number between 1 and " << numLines << "." << std::endl;
+            continue;
+        }
+
+        std::cout << "Enter the value of m (line number to move after): ";
+
+        // Check if the input is a valid integer
+        if (!(std::cin >> m)) {
+            std::cout << "Invalid input. Please enter a number." << std::endl;
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
+        }
+
+        // Check if the user wants to exit
+        if (m == 666) {
+            break;
+        }
+
+        // Check if the line number is out of bounds
+        if (m < 1 || m > numLines) {
             std::cout << "Invalid line number. Please enter a number between 1 and " << numLines << "." << std::endl;
             continue;
         }
@@ -101,10 +106,6 @@ int main() {
                 writeFile << "Line " << n << std::endl;
             }
 
-            if (currentLine != n) {
-                writeFile << line << std::endl;
-            }
-
             currentLine++;
         }
 
@@ -113,9 +114,7 @@ int main() {
 
         std::remove("random_file.txt");
         std::rename("temp_file.txt", "random_file.txt");
-
         std::cout << "Line " << n << " has been placed after line " << m << "." << std::endl;
-
         // Read and display the updated contents of the file
         std::ifstream updatedFile("random_file.txt");
 
@@ -123,9 +122,7 @@ int main() {
         while (std::getline(updatedFile, line)) {
             std::cout << line << std::endl;
         }
-
         updatedFile.close();
     }
-
     return 0;
 }
