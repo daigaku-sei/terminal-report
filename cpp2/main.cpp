@@ -3,7 +3,11 @@
 
 int main() {
     int rows1, cols1, rows2, cols2;
-
+    
+    std::cout << "______\n";
+    std::cout << "\n cpp2: [9] => T6: matrix operations on 2x[M]x[N] of double\n";
+    std::cout << "______";
+    
     // Ask user for rows and columns of the first matrix
     do {
         std::cout << "Enter the number of rows for the first matrix: ";
