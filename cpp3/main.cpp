@@ -2,7 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
-
+// to be improved
 int main() {
     std::ofstream file("random_file.txt"); // Create a file
     int numLines = 10; // Number of lines
