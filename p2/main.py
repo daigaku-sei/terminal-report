@@ -69,9 +69,9 @@ if multipliable:
 
 print("Matrix 1:\n", matrix1)
 print("Matrix 2:\n", matrix2)
-print("Rank of Matrix 1:", rank1)
+print("\nRank of Matrix 1:", rank1)
 print("Rank of Matrix 2:", rank2)
-print("Transpose of Matrix 1:\n", transpose1)
+print("\nTranspose of Matrix 1:\n", transpose1)
 print("Transpose of Matrix 2:\n", transpose2)
 
 if square1:
@@ -82,7 +82,7 @@ if square1:
     else:
         print("Matrix 1 is not invertible.")
 else:
-    print("Matrix 1 is not square.")
+    print("\nMatrix 1 is not square.")
 
 if square2:
     print("\nDeterminant of Matrix 2:", determinant2)
@@ -92,7 +92,7 @@ if square2:
     else:
         print("Matrix 2 is not invertible.")
 else:
-    print("Matrix 2 is not square.")
+    print("\nMatrix 2 is not square.")
 
 print("Are the matrices equal?", "Yes" if equal else "No")
 
