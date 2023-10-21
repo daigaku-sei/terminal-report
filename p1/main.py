@@ -86,9 +86,9 @@ print("\nNumber", number, "Presence:")
 print("Indexes:", guess_indexes)
 print("Count:", GUESS_COUNT)
 if GUESS_COUNT:
-    print("Better luck next time")
-else:
     print("Lucky guess!")
+else:
+    print("Better luck next time")
 
 # Calculate mean and geometric mean
 mean = SUM / len(array)
