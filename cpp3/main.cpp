@@ -81,7 +81,7 @@ int main() {
         }
 
         // Check if n is already after m
-        if (n > m) {
+        if (n == m || n == m + 1) {
             std::cout << "Line " << n << " is already after line " << m << "." << std::endl;
             continue;
         }
@@ -95,9 +95,12 @@ int main() {
         while (std::getline(readFile, line)) {
             if (currentLine == m) {
                 writeFile << line << std::endl;
-                writeFile << "New Line " << n << std::endl;
             } else if (currentLine != n) {
                 writeFile << line << std::endl;
+            }
+
+            if (currentLine == m + 1) {
+                writeFile << "Line " << n << std::endl;
             }
 
             currentLine++;
