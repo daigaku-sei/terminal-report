@@ -173,4 +173,8 @@ print("\nV. sort by insertion\nSorted Array (Ascending):", sorted_array)
 print("Sorted Array (Descending):", sorted_array[::-1])
 
 # Search for a value in the array until the user types 666
+print(
+    "Beginning the search for number feature...\n
+    You may now search for any number if it present or not in a array"
+)
 search_value(array)
