@@ -112,7 +112,6 @@ int main() {
             else  std::cout << "Matrix 1 is not invertible." << std::endl;
     } else
         std::cout << "Matrix 1 is not square." << std::endl;
-    }
 
     if (square2) {
         std::cout << "Determinant of Matrix 2: " << determinant2 << std::endl;
@@ -121,7 +120,6 @@ int main() {
             else  std::cout << "Matrix 2 is not invertible." << std::endl;
     } else
         std::cout << "Matrix 2 is not square." << std::endl;
-    }
 
     std::cout << "Are the matrices equal? " << (equal ? "Yes" : "No") << std::endl;
 
