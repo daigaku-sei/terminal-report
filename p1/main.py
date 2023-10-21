@@ -174,6 +174,6 @@ print("Sorted Array (Descending):", sorted_array[::-1])
 
 # Search for a value in the array until the user types 666
 print(
-    "VI. search array\nBeginning the search for number feature...\nYou may now search for any number if it present or not in a array"
+    "\nVI. search array\nBeginning the search for number feature...\nYou may now search for any number if it present or not in a array\n"
 )
 search_value(array)
