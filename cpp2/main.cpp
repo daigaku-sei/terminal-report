@@ -6,7 +6,7 @@ int main() {
     
     std::cout << "______\n";
     std::cout << "\n cpp2: [9] => T6: matrix operations on 2x[M]x[N] of double\n";
-    std::cout << "______";
+    std::cout << "______\n";
     
     // Ask user for rows and columns of the first matrix
     do {
