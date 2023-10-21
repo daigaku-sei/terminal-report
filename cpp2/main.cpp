@@ -111,7 +111,7 @@ int main() {
         if (invertible1) std::cout << "Inverse of Matrix 1:\n" << inverse1 << std::endl;
             else  std::cout << "Matrix 1 is not invertible." << std::endl;
     } else
-        std::cout << "Matrix 1 is not square." << std::endl;
+        std::cout << "\nMatrix 1 is not square." << std::endl;
 
     if (square2) {
         std::cout << "\nDeterminant of Matrix 2: " << determinant2 << std::endl;
@@ -119,9 +119,9 @@ int main() {
         if (invertible2) std::cout << "Inverse of Matrix 2:\n" << inverse2 << std::endl;
             else  std::cout << "Matrix 2 is not invertible." << std::endl;
     } else
-        std::cout << "Matrix 2 is not square." << std::endl;
+        std::cout << "\nMatrix 2 is not square." << std::endl;
 
-    std::cout << "Are the matrices equal? " << (equal ? "Yes" : "No") << std::endl;
+    std::cout << "\nAre the matrices equal? " << (equal ? "Yes" : "No") << std::endl;
 
     if (addable) {
         std::cout << "Sum of Matrix 1 and Matrix 2:\n" << sum << std::endl;
