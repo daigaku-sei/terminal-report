@@ -1,5 +1,9 @@
 import random
 
+print("______\n")
+print("\n p3: [9] => 9: place n-th line after m-th [start_index = 1]\nConsider s3: ask for link!\n")
+print("______")
+
 num_lines = 10
 
 print("Type 666 at some point to exit")
