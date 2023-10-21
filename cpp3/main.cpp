@@ -1,25 +1,15 @@
 #include <iostream>
 #include <fstream>
-#include <cstdlib>
-#include <ctime>
 #include <vector>
 #include <algorithm>
 
 int main() {
     std::ofstream file("random_file.txt"); // Create a file
-    // Generate a random number of lines (between 5 and 10)
-    std::srand(std::time(nullptr));
-    int numLines = std::rand() % 6 + 5;
-    // Fill the vector with random lines
-    std::vector<std::string> lines;
+    int numLines = 10; // Number of lines
+
+    // Write ordered lines to the file
     for (int i = 1; i <= numLines; i++) {
-        lines.push_back("Line " + std::to_string(i));
-    }
-    // Shuffle the lines
-    std::random_shuffle(lines.begin(), lines.end());
-    // Write the shuffled lines to the file
-    for (const std::string& line : lines) {
-        file << line << std::endl;
+        file << "Line " << i << std::endl;
     }
     file.close(); // Close the file
 
@@ -60,12 +50,12 @@ int main() {
 
     // Move the lines and write to the temporary file
     while (std::getline(readFile, line)) {
-        if (currentLine != n) {
-            writeFile << line << std::endl;
-        }
-
         if (currentLine == m) {
             writeFile << "Line " << n << std::endl;
+        }
+
+        if (currentLine != n) {
+            writeFile << line << std::endl;
         }
 
         writeFile << line << std::endl;
