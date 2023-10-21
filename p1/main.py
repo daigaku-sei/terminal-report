@@ -88,7 +88,7 @@ print("Count:", GUESS_COUNT)
 if GUESS_COUNT:
     print("Lucky guess!")
 else:
-    print("Better luck next time")
+    print("Better luck next time!")
 
 # Calculate mean and geometric mean
 mean = SUM / len(array)
