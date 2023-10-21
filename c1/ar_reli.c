@@ -9,7 +9,7 @@
 /* Fn to fill and get array data:
 min|max|sum|prod|mean|geomean|guess
 -> found on init of an array
--> used indent package to format the code*/
+-> used indent package in Termux to format the code*/
 
 void
 introduction (int arr[], int arr_size, int yourguess)
