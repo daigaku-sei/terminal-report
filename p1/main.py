@@ -27,11 +27,11 @@ def search_value(array):
             print("Invalid input. Please enter a valid integer or '666' to exit.")
 
 print("______\n")
-print("\n p1: [9] => T3,I3,M1: array operations on 1x[N] of random int\n")
+print("\n p1: [9] => T3,I3,M1: array operations on [N]x1 of random int\n")
 print("______")
 
 while True:
-    number = input("Enter N size number of elements for 1x[N] array: ")
+    number = input("Enter N size number of elements for [N]x1 array: ")
     try:
         size = int(number)
         if size <= 0:  # if not a positive int print message and ask for input again
@@ -43,7 +43,7 @@ while True:
 
 # Ask user for a number
 while True:
-    number = input("Guess a number in -100..100 to be randomed in 1x[N]: ")
+    number = input(f"Guess a number in -100..100 to be randomed in [N={size}]x1: ")
     try:
         number = int(number)
         break
@@ -76,13 +76,19 @@ print("\nArray:", array)
 # Print the properties
 print("Sum:", format(SUM, ','))
 print("Product:", format(PRODUCT, ','))
+
 print("\nMinimum Value:", min_value)
 print("Minimum Indexes:", min_indexes)
 print("Maximum Value:", max_value)
 print("Maximum Indexes:", max_indexes)
+
 print("\nNumber", number, "Presence:")
 print("Indexes:", guess_indexes)
 print("Count:", GUESS_COUNT)
+if GUESS_COUNT:
+    print("Better luck next time")
+else:
+    print("Lucky guess!")
 
 # Calculate mean and geometric mean
 mean = SUM / len(array)
