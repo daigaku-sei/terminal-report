@@ -19,12 +19,12 @@ matrix2 = np.zeros((rows2, cols2))
 
 choice = input("Do you want to enter the matrix values manually? (y/n): ")
 if choice.lower() == 'y':
-    print("Enter the values for matrix1:")
+    print("Enter the values 1 per line & hit enter each time for matrix1:")
     for i in range(rows1):
         for j in range(cols1):
             matrix1[i, j] = float(input())
 
-    print("Enter the values for matrix2:")
+    print("Enter the values 1 per line & hit enter each time for matrix2:")
     for i in range(rows2):
         for j in range(cols2):
             matrix2[i, j] = float(input())
