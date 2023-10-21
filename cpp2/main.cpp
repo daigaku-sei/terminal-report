@@ -68,14 +68,14 @@ int main() {
     if (square1) {
         determinant1 = matrix1.determinant();
         trace1 = matrix1.trace();
-        inverse1 = matrix1.inverse();
+        if (determinant != 0) inverse1 = matrix1.inverse();
         invertible1 = true;
     }
 
     if (square2) {
         determinant2 = matrix2.determinant();
         trace2 = matrix2.trace();
-        inverse2 = matrix2.inverse();
+        if (determinant != 0) inverse2 = matrix2.inverse();
         invertible2 = true;
     }
 
@@ -108,15 +108,17 @@ int main() {
     if (square1) {
         std::cout << "Determinant of Matrix 1: " << determinant1 << std::endl;
         std::cout << "Trace of Matrix 1: " << trace1 << std::endl;
-        std::cout << "Inverse of Matrix 1:\n" << inverse1 << std::endl;
-    } else {
+        if (invertible1) std::cout << "Inverse of Matrix 1:\n" << inverse1 << std::endl
+            else  std::cout << "Matrix 1 is not invertible." << std::endl
+    } else
         std::cout << "Matrix 1 is not square." << std::endl;
     }
 
     if (square2) {
         std::cout << "Determinant of Matrix 2: " << determinant2 << std::endl;
         std::cout << "Trace of Matrix 2: " << trace2 << std::endl;
-        std::cout << "Inverse of Matrix 2:\n" << inverse2 << std::endl;
+        if (invertible2) std::cout << "Inverse of Matrix 2:\n" << inverse2 << std::endl
+            else  std::cout << "Matrix 2 is not invertible." << std::endl
     } else {
         std::cout << "Matrix 2 is not square." << std::endl;
     }
