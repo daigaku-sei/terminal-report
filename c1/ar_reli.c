@@ -97,6 +97,9 @@ introduction (int arr[], int arr_size, int yourguess)
     }
   if (guess_indexes[0])
     printf ("\nLUCKY GUESS!");
+	else {
+		printf("Better luck next time!");
+	}
   printf ("\n");
 }
 
