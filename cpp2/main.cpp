@@ -116,7 +116,7 @@ int main() {
     }
 
     // Print the results
-    std::cout << "Matrix 1:\n" << matrix1 << std::endl;
+    std::cout << "\nMatrix 1:\n" << matrix1 << std::endl;
     std::cout << "Matrix 2:\n" << matrix2 << std::endl;
 
     std::cout << "\nRank of Matrix 1: " << rank1 << std::endl;
