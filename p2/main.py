@@ -120,4 +120,4 @@ else:
 if multipliable:
     print("Product of Matrix 1 and Matrix 2:\n", product)
 else:
-    print("Matrices cannot be multiplied.")
+    print("Matrices cannot be multiplied.\n")
