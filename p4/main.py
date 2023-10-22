@@ -115,3 +115,4 @@ while len(l_values) < num_l:
 
 # Calculate and save the data
 calculate_and_save_data(a, b, l_values, 9.8)
+print("Plots are in the dir of a py file")
