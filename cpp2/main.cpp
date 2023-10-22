@@ -22,9 +22,9 @@ int main() {
     
     // Ask user for rows and columns of the first matrix
     do {
-        std::cout << "Enter the number of rows for the first matrix: ";
+        std::cout << "Enter the valid number of rows for the first matrix: ";
         rows1 = getInputAsInt();
-        std::cout << "Enter the number of columns for the first matrix: ";
+        std::cout << "Enter the valid number of columns for the first matrix: ";
         cols1 = getInputAsInt();
     } while (rows1 <= 0 || cols1 <= 0);
 
