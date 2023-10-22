@@ -1,6 +1,9 @@
-# this is some collection of FOSS to be used
-Git
-Python
-Streamlit framework
-Linux OS
-R
+| FOSS Projects     | Similarities                                                                                     | Differences                                                                                      |
+|-------------------|-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
+| Linux OS          | Open-source operating system. Collaboration and sharing of source code.                          | Focuses on the development and adoption of the Linux kernel and associated components.           |
+| Git               | Distributed version control system. Collaboration and sharing of source code.                    | Focuses on managing source code and facilitating collaboration among developers.                 |
+| Python            | Open-source programming language. Collaboration and sharing of code and libraries.               | Focuses on general-purpose programming, data analysis, and scientific computing.                |
+| Streamlit         | Open-source framework for building data apps. Collaboration and sharing of code and applications. | Focuses on creating interactive web applications for data science and machine learning tasks.    |
+| Binder            | Open-source platform for creating and sharing interactive notebooks and code environments.       | Focuses on enabling reproducibility and sharing of computational environments and code.          |
+| R                 | Open-source programming language for statistical computing and graphics. Collaboration and sharing of code and libraries. | Focuses on statistical analysis, data visualization, and machine learning. |
+| Jupyter           | Open-source web application for creating and sharing documents that contain live code, equations, visualizations, and narrative text. Collaboration and sharing of notebooks. | Focuses on creating interactive computational notebooks that support multiple programming languages. |
