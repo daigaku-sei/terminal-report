@@ -44,16 +44,18 @@ int main() {
     std::cin >> choice;
 
     if (choice == 'y' || choice == 'Y') {
-        std::cout << "Enter the values 1 per line & hit enter for Matrix 1:\n";
         std::cout << "Type any invalid to autofill with zeros the rest (both matrixes)\n";
+        std::cout << "Going column by column, from top number to bottom\n";
+        std::cout << "Enter the values 1 per line & hit enter for Matrix 1:\n";
         for (int i = 0; i < rows1; i++) {
             for (int j = 0; j < cols1; j++) {
                 std::cin >> matrix1(i, j);
             }
         }
 
-        std::cout << "Enter the values 1 per line & hit enter for Matrix 2:\n";
         std::cout << "Type any invalid to autofill with zeros the rest of Matrix 2\n";
+        std::cout << "Going column by column, from top number to bottom\n";
+        std::cout << "Enter the values 1 per line & hit enter for Matrix 2:\n";
         for (int i = 0; i < rows2; i++) {
             for (int j = 0; j < cols2; j++) {
                 std::cin >> matrix2(i, j);
