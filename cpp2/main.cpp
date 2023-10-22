@@ -152,7 +152,7 @@ int main() {
     if (multipliable) {
         std::cout << "Product of Matrix 1 and Matrix 2:\n" << product << std::endl;
     } else {
-        std::cout << "Matrices cannot be multiplied." << std::endl;
+        std::cout << "Matrices cannot be multiplied.\n" << std::endl;
     }
 
     return 0;
