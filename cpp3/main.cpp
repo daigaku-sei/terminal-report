@@ -27,9 +27,10 @@ int main() {
     }
     readFile1.close();
 
+    int n, m; // Declare n and m here
+
     while (true) {
         try {
-            int n, m;
             std::cout << "Enter the line number to move: ";
             std::cin >> n;
             if (n == 666) {
