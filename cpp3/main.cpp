@@ -70,7 +70,7 @@ int main() {
 
         // Account for n < m
         if (n < m) {
-            lines.insert(lines.begin() + m - 1, lines[n - 1]);
+            lines.insert(lines.begin() + m, lines[n - 1]);
             lines.erase(lines.begin() + n - 1);
         } else {
             lines.insert(lines.begin() + m, lines[n - 1]);
