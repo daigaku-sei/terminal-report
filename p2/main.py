@@ -94,7 +94,7 @@ if square1:
     print("\nDeterminant of Matrix 1:", determinant1)
     print("Trace of Matrix 1:", trace1)
     if invertible1:
-        print("Inverse of Matrix 1:\n", inverse2)
+        print("Inverse of Matrix 1:\n", inverse1)
     else:
         print("Matrix 1 is not invertible.")
 else:
