@@ -19,13 +19,13 @@ int main() {
     file.close();
 
     // Read and display the contents of the file
-    std::ifstream readFile("random_file.txt");
+    std::ifstream readFile1("random_file.txt");
     std::cout << "Contents of the file:" << std::endl;
     std::string line;
-    while (std::getline(readFile, line)) {
+    while (std::getline(readFile1, line)) {
         std::cout << line << std::endl;
     }
-    readFile.close();
+    readFile1.close();
 
     while (true) {
         try {
@@ -52,12 +52,12 @@ int main() {
         }
 
         std::vector<std::string> lines;
-        std::ifstream readFile("random_file.txt");
+        std::ifstream readFile2("random_file.txt");
         std::string line;
-        while (std::getline(readFile, line)) {
+        while (std::getline(readFile2, line)) {
             lines.push_back(line);
         }
-        readFile.close();
+        readFile2.close();
 
         // Account for n < m
         if (n < m) {
@@ -65,7 +65,7 @@ int main() {
             lines.erase(lines.begin() + n - 1);
         } else {
             lines.insert(lines.begin() + m, lines[n - 1]);
-            lines.erase(lines.begin() + n - 1);
+            lines.erase(lines.begin() + n);
         }
 
         std::ofstream writeFile("random_file.txt");
@@ -81,21 +81,21 @@ int main() {
         }
 
         // Read and display the updated contents of the file
-        std::ifstream readFile("random_file.txt");
+        std::ifstream readFile3("random_file.txt");
         std::cout << "Contents of the file:" << std::endl;
-        while (std::getline(readFile, line)) {
+        while (std::getline(readFile3, line)) {
             std::cout << line << std::endl;
         }
-        readFile.close();
+        readFile3.close();
     }
 
     // Read and display the final contents of the file
-    std::ifstream readFile("random_file.txt");
+    std::ifstream readFile4("random_file.txt");
     std::cout << "Final contents of the file:" << std::endl;
-    while (std::getline(readFile, line)) {
+    while (std::getline(readFile4, line)) {
         std::cout << line << std::endl;
     }
-    readFile.close();
+    readFile4.close();
 
     return 0;
 }
