@@ -40,11 +40,11 @@ int main() {
     Eigen::MatrixXd matrix2(rows2, cols2);
 
     char choice;
-    std::cout << "Do you want to enter the matrix values manually? (y/n): ";
+    std::cout << "\nDo you want to enter the matrix values manually? (y/n): ";
     std::cin >> choice;
 
     if (choice == 'y' || choice == 'Y') {
-        std::cout << "Type any invalid to autofill with zeros the rest (both matrixes)\n";
+        std::cout << "\nType any invalid to autofill with zeros the rest (both matrixes)\n";
         std::cout << "Going column by column, from top number to bottom\n";
         std::cout << "Enter the values 1 per line & hit enter for Matrix 1:\n";
         for (int i = 0; i < rows1; i++) {
@@ -53,7 +53,7 @@ int main() {
             }
         }
 
-        std::cout << "Type any invalid to autofill with zeros the rest of Matrix 2\n";
+        std::cout << "\nType any invalid to autofill with zeros the rest of Matrix 2\n";
         std::cout << "Going column by column, from top number to bottom\n";
         std::cout << "Enter the values 1 per line & hit enter for Matrix 2:\n";
         for (int i = 0; i < rows2; i++) {
