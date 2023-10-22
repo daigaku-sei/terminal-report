@@ -4,30 +4,46 @@ print("______\n")
 print("\n p2: [9] => T6: matrix operations on 2x[M]x[N] of double\n")
 print("______")
 
+def get_valid_integer_input(message):
+    while True:
+        try:
+            value = int(input(message))
+            return value
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+
+def get_valid_float_input(message):
+    while True:
+        try:
+            value = float(input(message))
+            return value
+        except ValueError:
+            print("Invalid input. Please enter a valid float.")
+
 rows1, cols1 = 0, 0
 while rows1 <= 0 or cols1 <= 0:
-    rows1 = int(input("Enter the number of rows for the first matrix: "))
-    cols1 = int(input("Enter the number of columns for the first matrix: "))
+    rows1 = get_valid_integer_input("Enter the valid number of rows for the first matrix: ")
+    cols1 = get_valid_integer_input("Enter the valid number of columns for the first matrix: ")
 
 rows2, cols2 = 0, 0
 while rows2 <= 0 or cols2 <= 0:
-    rows2 = int(input("Enter the valid number of rows for the second matrix: "))
-    cols2 = int(input("Enter the valid number of columns for the second matrix: "))
+    rows2 = get_valid_integer_input("Enter the valid number of rows for the second matrix: ")
+    cols2 = get_valid_integer_input("Enter the valid number of columns for the second matrix: ")
 
 matrix1 = np.zeros((rows1, cols1))
 matrix2 = np.zeros((rows2, cols2))
 
 choice = input("Do you want to enter the matrix values manually? (y/n): ")
 if choice.lower() == 'y':
-    print("Enter the values 1 per line & hit enter each time for matrix1:")
+    print("Enter the values for Matrix 1: iterating each column, from top to btm")
     for i in range(rows1):
         for j in range(cols1):
-            matrix1[i, j] = float(input())
+            matrix1[i, j] = get_valid_float_input(f"[{i,j}]=? ")
 
-    print("Enter the values 1 per line & hit enter each time for matrix2:")
+    print("Enter the values for Matrix 2: iterating each column, from top to btm")
     for i in range(rows2):
         for j in range(cols2):
-            matrix2[i, j] = float(input())
+            matrix2[i, j] = get_valid_float_input(f"[{i,j}]=? ")
 else:
     matrix1 = np.random.randn(rows1, cols1) * 100.0
     matrix2 = np.random.randn(rows2, cols2) * 100.0
