@@ -1,4 +1,4 @@
-# this is some collection of FOSS
+# this is some collection of FOSS to be used
 Git
 Python
 Streamlit framework
