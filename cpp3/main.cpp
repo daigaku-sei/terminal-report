@@ -1,13 +1,22 @@
+cpp
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <sstream>
+
+int getInputAsInt() {
+    std::string input;
+    std::getline(std::cin, input);
+    std::stringstream ss(input);
+    int value;
+    if (ss >> value) {
+        return value;
+    } else {
+        throw std::runtime_error("Invalid input. Please enter a valid integer.");
+    }
+}
 
 int main() {
-
-    std::cout << "______\n";
-    std::cout << "\n cpp3: [9] => 9. line relocator: pop nth and insert after mth\n";
-    std::cout << "______\n";
-    
     int num_lines = 10;
     std::cout << "Type 666 at some point to exit" << std::endl;
 
@@ -32,17 +41,17 @@ int main() {
     while (true) {
         try {
             std::cout << "Enter the line number to move: ";
-            std::cin >> n;
+            n = getInputAsInt();
             if (n == 666) {
                 break;
             }
             std::cout << "Enter the line number to move after: ";
-            std::cin >> m;
+            m = getInputAsInt();
             if (m == 666) {
                 break;
             }
-        } catch (...) {
-            std::cout << "Invalid input. Please enter a valid integer." << std::endl;
+        } catch (const std::exception& e) {
+            std::cout << e.what() << std::endl;
             continue;
         }
 
