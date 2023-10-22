@@ -2,82 +2,47 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
-// to be improved
+#include <filesystem>
+
 int main() {
-    std::ofstream file("random_file.txt"); // Create a file
-    int numLines = 10; // Number of lines
-
-    // Write ordered lines to the file
-    for (int i = 1; i <= numLines; i++) {
-        file << "Line " << i << std::endl;
+    // Ask user for file path
+    std::string filePath;
+    while (true) {
+        std::cout << "Enter the path to the file (666 to quit): ";
+        std::getline(std::cin, filePath);
+        if (filePath.empty() || filePath == "666") {
+            break;
+        }
+        // Check if file exists
+        if (!std::filesystem::exists(filePath)) {
+            std::cout << "File not found: " << filePath << std::endl;
+            filePath.clear();
+        }
     }
-    file.close(); // Close the file
+    if (filePath.empty()) {
+        return 0; // User entered 666
+    }
 
-    // Read and display the contents of the file
-    std::ifstream readFile("random_file.txt");
+    // Open file and read contents
+    std::ifstream file(filePath, std::ios::binary);
+    if (!file) {
+        std::cout << "Error opening file: " << filePath << std::endl;
+        return 1;
+    }
+    std::vector<std::string> lines;
     std::string line;
-
-    std::cout << "Contents of the file:" << std::endl;
-    while (std::getline(readFile, line)) {
-        std::cout << line << std::endl;
+    while (std::getline(file, line)) {
+        lines.push_back(line);
     }
-    readFile.close(); // Close the file
+    file.close();
 
+    // Ask user for line numbers
     int n, m;
-
-    std::cout << "Enter the value of n (line number to move): ";
-    std::cin >> n;
-
-    std::cout << "Enter the value of m (line number to move after): ";
-    std::cin >> m;
-
-    // Check if the line numbers are valid
-    if (n < 1 || n > numLines || m < 1 || m > numLines) {
-        std::cout << "Invalid line numbers. Please enter numbers between 1 and " << numLines << "." << std::endl;
-        return 1;
-    }
-
-    // Check if n is already after m
-    if (n >= m) {
-        std::cout << "Line " << n << " is already after line " << m << "." << std::endl;
-        return 1;
-    }
-
-    std::ifstream readFile("random_file.txt");
-    std::ofstream writeFile("temp_file.txt");
-
-    int currentLine = 1;
-
-    // Move the lines and write to the temporary file
-    while (std::getline(readFile, line)) {
-        if (currentLine == m) {
-            writeFile << "Line " << n << std::endl;
+    while (true) {
+        std::cout << "Enter the value of n (line number to move): ";
+        std::cin >> n;
+        if (n < 1 || n > lines.size()) {
+            std::cout << "Invalid line number. Please enter a number between 1 and " << lines.size() << "." << std::endl;
+            continue;
         }
-
-        if (currentLine != n) {
-            writeFile << line << std::endl;
-        }
-
-        writeFile << line << std::endl;
-
-        currentLine++;
-    }
-
-    readFile.close();
-    writeFile.close();
-
-    std::remove("random_file.txt");
-    std::rename("temp_file.txt", "random_file.txt");
-    std::cout << "Line " << n << " has been placed after line " << m << "." << std::endl;
-
-    // Read and display the updated contents of the file
-    std::ifstream updatedFile("random_file.txt");
-
-    std::cout << "Updated contents of the file:" << std::endl;
-    while (std::getline(updatedFile, line)) {
-        std::cout << line << std::endl;
-    }
-    updatedFile.close();
-
-    return 0;
-}
+        std::cout << "Enter the value of m (line number to move after): ";
