@@ -53,7 +53,7 @@ void plot_data(std::vector<std::pair<double, std::vector<std::pair<double, doubl
             phi0_values.push_back(l_data[j].first);
             T_values.push_back(l_data[j].second);
         }
-        // Plot the data using a plotting library of your choice
+        // Plot the data using a plotting library (fix gnuplot Qt in terminal)
     }
 }
 
