@@ -1,4 +1,6 @@
+# this is some collection of FOSS
 Git
 Python
 Streamlit framework
 Linux OS
+R
