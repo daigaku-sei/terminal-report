@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include <gsl/gsl_sf_ellint.h>
 
 double calculate_period(double phi0, double l, double g) {
