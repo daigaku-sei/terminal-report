@@ -1,0 +1,4 @@
+Git
+Python
+Streamlit framework
+Linux OS
