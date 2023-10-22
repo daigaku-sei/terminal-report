@@ -107,7 +107,7 @@ while len(l_values) < num_l:
             break
         except ValueError:
             print("Invalid value entered.")
-            l = input(f"Enter l value {i+1}: ")
+            l = input(f"Enter l value {len(l_values)+1}: ")
     if l not in l_values:
         l_values.append(l)
     else: print(f"ignoring repeat {l}")
