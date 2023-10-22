@@ -69,7 +69,7 @@ if square2:
     determinant2 = np.linalg.det(matrix2)
     trace2 = np.trace(matrix2)
     if determinant2 !=0:
-        inverse2 = np.linalg.inv(matrix1)
+        inverse2 = np.linalg.inv(matrix2)
         invertible2 = True
 
 sum_matrix, product = None, None
