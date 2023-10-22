@@ -71,11 +71,10 @@ int main() {
         // Account for n < m
         if (n < m) {
             lines.insert(lines.begin() + m - 1, lines[n - 1]);
-            if (n <= m) {
-                lines.erase(lines.begin() + n - 1);
-            } else {
-                lines.erase(lines.begin() + n);
-            }
+            lines.erase(lines.begin() + n - 1);
+        } else {
+            lines.insert(lines.begin() + m, lines[n - 1]);
+            lines.erase(lines.begin() + n);
         }
         std::ofstream writeFile("random_file.txt");
         for (const auto& line : lines) {
