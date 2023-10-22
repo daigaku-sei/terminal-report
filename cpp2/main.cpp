@@ -1,6 +1,18 @@
 #include <iostream>
 #include <Eigen/Dense>
 
+int getInputAsInt() {
+    std::string input;
+    std::cin >> input;
+    std::stringstream ss(input);
+    int value;
+    if (ss >> value) {
+        return value;
+    } else {
+        return -1; // Return -1 to indicate invalid input
+    }
+}
+
 int main() {
     int rows1, cols1, rows2, cols2;
     
@@ -11,17 +23,17 @@ int main() {
     // Ask user for rows and columns of the first matrix
     do {
         std::cout << "Enter the number of rows for the first matrix: ";
-        std::cin >> rows1;
+        rows1 = getInputAsInt();
         std::cout << "Enter the number of columns for the first matrix: ";
-        std::cin >> cols1;
+        cols1 = getInputAsInt();
     } while (rows1 <= 0 || cols1 <= 0);
 
     // Ask user for rows and columns of the second matrix
     do {
         std::cout << "Enter the valid number of rows for the second matrix: ";
-        std::cin >> rows2;
+        rows2 = getInputAsInt();
         std::cout << "Enter the valid number of columns for the second matrix: ";
-        std::cin >> cols2;
+        cols2 = getInputAsInt();
     } while (rows2 <= 0 || cols2 <= 0);
 
     Eigen::MatrixXd matrix1(rows1, cols1);
