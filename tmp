@@ -1,2 +1,6 @@
 x_acceleration = (-430 / 505) * (x_velocity + 3 * cos(pi / 36)) + g * sin(pi / 18)
 y_acceleration = (-9089 / 505) * y - (430 / 505) * (y_velocity + 3 * sin(pi / 36)) + g * cos(pi / 18)
+
+x_velocity(0) = -1.8 * sin(10 grad)
+y_velocity(0) = -1.8 * cos(10 grad)
+x(0) = 0
