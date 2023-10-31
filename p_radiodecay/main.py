@@ -27,7 +27,6 @@ Mo99_t0.plot(20, 'd', yunits='Bq')
 plt.savefig('Mo99.plot.png')
 
 nuc = rd.Nuclide('Mo-99')
-nuc.plot()
 fig = nuc.plot()
 
 # Save the plot as an image file
