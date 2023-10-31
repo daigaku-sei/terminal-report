@@ -1,4 +1,5 @@
 import radioactivedecay as rd
+import matplotlib.pyplot as plt
 
 print('\nWelcome to radioactive decay package demo!')
 
@@ -28,4 +29,4 @@ nuc.plot()
 fig = nuc.plot()
 
 # Save the plot as an image file
-fig.savefig('Mo99.plot.png')
+plt.savefig('Mo99.plot.png')
