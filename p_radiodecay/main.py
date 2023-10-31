@@ -1,5 +1,6 @@
 import radioactivedecay as rd
 import matplotlib.pyplot as plt
+from rich import print
 
 print('\nWelcome to radioactive decay package demo!')
 
@@ -23,10 +24,11 @@ print(C14_t1.moles('mol'))
 print(C14_t1.mole_fractions())
 
 Mo99_t0.plot(20, 'd', yunits='Bq')
+plt.savefig('Mo99.plot.png')
 
 nuc = rd.Nuclide('Mo-99')
 nuc.plot()
 fig = nuc.plot()
 
 # Save the plot as an image file
-plt.savefig('Mo99.plot.png')
+plt.savefig('Mo99_decaychain.plot.png')
