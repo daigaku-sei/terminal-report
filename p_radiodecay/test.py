@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from radioactive import RadioactiveDecay
+from radioactivedecay import RadioactiveDecay
 
 # Create a RadioactiveDecay object
 rd = RadioactiveDecay('Mo-99')
