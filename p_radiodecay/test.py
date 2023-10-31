@@ -1,11 +1,13 @@
 import matplotlib.pyplot as plt
-import radioactivedecay as rd
+from radioactive import RadioactiveDecay
 
-# Create a nucleid object
-nuc = rd.Nuclide('Mo-99')
+# Create a RadioactiveDecay object
+rd = RadioactiveDecay('Mo-99')
 
-# Plot the decay chain
-nuc.plot()
+# Create a figure with a line chart
+fig, ax = plt.subplots()
+ax.plot(rd.get_time(), rd.get_activity())
 
 # Display the plot inline
+plt.ion()
 plt.show()
