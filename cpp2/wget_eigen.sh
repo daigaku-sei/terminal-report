@@ -2,16 +2,16 @@
 
 # Prompt the user to choose the destination for the include directory
 echo "Choose the destination for the include directory:"
-echo "1. usr/include"
-echo "2. /include"
+echo "1. ~/usr/include"
+echo "2. ~/include"
 echo "3. /data/data/com.termux/files/usr/include/"
 read -p "Enter your choice (1, 2, or 3): " choice
 
 # Set the destination directory based on the user's choice
 if [ $choice -eq 1 ]; then
-    destination_dir="/usr/include/"
+    destination_dir="~/usr/include/"
 elif [ $choice -eq 2 ]; then
-    destination_dir="/include/"
+    destination_dir="~/include/"
 elif [ $choice -eq 3 ]; then
     destination_dir="/data/data/com.termux/files/usr/include/"
 else
