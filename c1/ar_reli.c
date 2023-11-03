@@ -114,6 +114,17 @@ imprinted (int arr[], int arr_size)
   printf ("\n");
 }
 
+/* Fn to reverse sorted array */
+void reverseArray(int arr[], int size) {
+    int temp[size];
+    memcpy(temp, arr, size * sizeof(int));
+    
+    for (int i = 0; i < size; i++) {
+        arr[i] = temp[size - i - 1];
+    }
+    imprinted (arr, arr_size);
+  }
+
 
 /* Fn to sort and print an array using insertion*/
 void
@@ -136,16 +147,6 @@ inception (int arr[], int arr_size)
       arr[j + 1] = key;
     }
   imprinted (arr, arr_size);
-	
-  void reverseArray(int arr[], int size) {
-    int temp[size];
-    memcpy(temp, arr, size * sizeof(int));
-    
-    for (int i = 0; i < size; i++) {
-        arr[i] = temp[size - i - 1];
-    }
-    imprinted (arr, arr_size);
-  }
   reverseArray(arr, arr_size);
 }
 
