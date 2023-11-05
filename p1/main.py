@@ -8,8 +8,8 @@ simple array (of int) operations:
     sum, prod
     mean, geometric mean
     odd, even
-    sort by insertion
     multisearch (search for number)
+    sort by insertion
 
 """
 
@@ -160,20 +160,17 @@ print(f"Geometric Mean: {geometric_mean:.3f}")
 print("\nIV. odd|even\nOdd count:", odd_count)
 print("Even count:", even_count)
 
-# Sort the array using the sorted() function
-# sorted_array = in_serted(array)
+# Search for a value in the array until the user types 666
+print(
+    "\nV. search array\nBeginning the search for number feature...\nYou may now search for any number if it present or not in a array\n"
+)
+search_value(array)
 
 # Use custom (by insertion) sort fn
 sorted_array = insertion_sort(array)
 
 # Print the sorted array in ascending order
-print("\nV. sort by insertion\nSorted Array (Ascending):", sorted_array)
+print("\nVI. sort by insertion\nSorted Array (Ascending):", sorted_array)
 
 # Print the sorted array in descending order
 print("Sorted Array (Descending):", sorted_array[::-1])
-
-# Search for a value in the array until the user types 666
-print(
-    "\nVI. search array\nBeginning the search for number feature...\nYou may now search for any number if it present or not in a array\n"
-)
-search_value(array)

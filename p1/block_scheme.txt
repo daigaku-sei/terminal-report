@@ -1,15 +1,21 @@
 Start
-├─ Ask user for a number
+├─ Ask user, how many elements to random
+├─ Ask user to guess a number
+│
 ├─ Create an array of random elements
-│   └─ Collect data while initializing:
-│       ├─ Calculate sum
-│       ├─ Calculate product
-│       ├─ Track minimum value and its indexes
-│       ├─ Track maximum value and its indexes
-│       └─ Check if the number is present and track its indexes and count
-├─ Print the array
-├─ Print the properties (sum, product, minimum, maximum, presence)
+│
+├─ Track count of odd and even
+├─ Track minimum value and its indexes
+├─ Track maximum value and its indexes
+├─ Calculate sum
+├─ Calculate product
+├─ Check if the number is present and track its indexes and count
+│
+├─ Print if guess was correct
+├─ Print the orignal array
+├─ Print the found properties
 ├─ Calculate mean and geometric mean
 ├─ Print mean and geometric mean
-└─ Sort the array
+├─ Sort the array
+└─ Post-init search array feature
 End
