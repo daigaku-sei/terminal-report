@@ -70,35 +70,34 @@ def search_text_in_pdf(pdf, searched_text):
                 print(line)
 
 
-if __name__ == "__main__":
-    # Usage example
-    pdf_urls = [
-        "https://greenteapress.com/thinkdsp/thinkdsp.pdf",
-        "https://makarovpa.ru/practice/familiarization-practice-IST-2023.pdf",
-        "https://greenteapress.com/thinkpython2/thinkpython2.pdf",
-    ]
+# Usage example
+pdf_urls = [
+    "https://greenteapress.com/thinkdsp/thinkdsp.pdf",
+    "https://makarovpa.ru/practice/familiarization-practice-IST-2023.pdf",
+    "https://greenteapress.com/thinkpython2/thinkpython2.pdf",
+]
 
-    print("Choose a PDF file to search:")
-    for i, url in enumerate(pdf_urls, start=1):
-        print(f"{i}. {url}")
+print("Choose a PDF file to search:")
+for i, url in enumerate(pdf_urls, start=1):
+    print(f"{i}. {url}")
 
-    while True:
-        try:
-            choice = int(
-                input("Enter the number of the PDF file you want to search: ")
-            )
-            if choice < 1 or choice > len(pdf_urls):
-                raise IndexError
-            break
-        except (ValueError, IndexError):
-            print("Invalid input. Please enter a valid number.")
+while True:
+    try:
+        choice = int(
+            input("Enter the number of the PDF file you want to search: ")
+        )
+        if choice < 1 or choice > len(pdf_urls):
+            raise IndexError
+        break
+    except (ValueError, IndexError):
+        print("Invalid input. Please enter a valid number.")
 
-    selected_url = pdf_urls[choice - 1]
-    pdf_file = download_pdf_from_url(selected_url)
+selected_url = pdf_urls[choice - 1]
+pdf_file = download_pdf_from_url(selected_url)
 
-    search_text = input("Enter the text to search: ")
-    search_text_in_pdf(pdf_file, search_text)
+search_text = input("Enter the text to search: ")
+search_text_in_pdf(pdf_file, search_text)
 
-    print_page(pdf_file)
+print_page(pdf_file)
 
-    # print_pdf(pdf_file)
+# print_pdf(pdf_file)
