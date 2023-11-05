@@ -1,15 +1,21 @@
 Start
-├─ Ask user for a number
-├─ Create an array of random elements
-│   └─ Collect data while initializing:
+├─ Ask user to guess a number
+├─ Create an array of random size and elements
+│   └─ Collect properties while initializing:
 │       ├─ Calculate sum
 │       ├─ Calculate product
 │       ├─ Track minimum value and its indexes
 │       ├─ Track maximum value and its indexes
 │       └─ Check if the number is present and track its indexes and count
+├─ Did the user guess right?
+│    ├─ If true:
+│    │     └─ "Lucky guess!"
+│    └─ If false:
+│          └─ "Better luck next time!"
 ├─ Print the array
 ├─ Print the properties (sum, product, minimum, maximum, presence)
-├─ Calculate mean and geometric mean
-├─ Print mean and geometric mean
-└─ Sort the array
+│	└─ Calculate and print mean and geometric mean out of sum and product
+├─ Search any other number or don't by typing 666 to exit search loop
+│ 	└─ Check if the number is present, print its indexes and count
+└─ Sort the array with insertions, both ways
 End
