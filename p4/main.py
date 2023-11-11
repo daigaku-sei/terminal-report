@@ -3,7 +3,7 @@ from scipy.special import ellipk
 import matplotlib.pyplot as plt
 
 def calculate_period(phi0, l, g):
-    T = 4 * np.sqrt(l / g) * ellipk(np.sin(phi0 / 2) ** 2)
+    T = 4 * np.sqrt(l / g) * ellipk(np.sin(phi0 / 2))
     return T
 
 def save_data(l_values, phi0_values, g):
