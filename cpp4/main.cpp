@@ -24,7 +24,7 @@ double ellipk(double x) {
 }
 
 double calculate_period(double phi0, double l, double g) {
-    double T = 4 * std::sqrt(l / g) * ellipk(std::sin(phi0 / 2) * std::sin(phi0 / 2));
+    double T = 4 * std::sqrt(l / g) * ellipk(std::sin(phi0 / 2));
     return T;
 }
 
