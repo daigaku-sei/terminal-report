@@ -3,7 +3,7 @@ from scipy.special import ellipk
 import matplotlib.pyplot as plt
 
 def calculate_period(phi0, l, g):
-    T = 4 * np.sqrt(l / g) * ellipk(np.sin(phi0 / 2))
+    T = 4 * np.sqrt(l / g) * ellipk(np.sin(phi0 / 2) **2)
     return T
 
 def save_data(l_values, phi0_values, g):
@@ -116,3 +116,5 @@ while len(l_values) < num_l:
 # Calculate and save the data
 calculate_and_save_data(a, b, l_values, 9.8)
 print("Plots are in the dir of a py file")
+
+
