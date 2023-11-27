@@ -24,7 +24,8 @@ double ellipk(double x) {
 }
 
 double calculate_period(double phi0, double l, double g) {
-    double T = 4 * std::sqrt(l / g) * ellipk(std::sin(phi0 / 2) ^2);
+    double T = 4 * std::sqrt(l / g) * ellipk(std::sin(phi0 / 2));
+	// for larger angles T = 4 * std::sqrt(l / g) * ellipk(std::sin(phi0 / 2) ^2);
     return T;
 }
 
@@ -83,12 +84,14 @@ void calculate_and_save_data(double a, double b, std::vector<double> l_values, d
 }
 
 int main() {
-    double a_min = -M_PI / 2;
-    double a_max = M_PI / 2;
+	
+    double a_min = 0.0;
+    double a_max = 0.1745;
     double b_min = 0.0;
-    double b_max = M_PI / 2;
-
+    double b_max = 0.1745;
+	
     double a;
+	std::cout << "Angle displacement: from 0 to 0.1745 radians";
     std::cout << "Enter the lower bound for phi0 (hit Enter for " << a_min << "): ";
     std::string input;
     std::getline(std::cin, input);

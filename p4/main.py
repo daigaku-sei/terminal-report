@@ -2,9 +2,13 @@ import numpy as np
 from scipy.special import ellipk
 import matplotlib.pyplot as plt
 
+##  T = 4 * np.sqrt(l / g) * ellipk(np.sin(phi0 / 2)**2)  for large angles (>10grad)
+
 def calculate_period(phi0, l, g):
-    T = 4 * np.sqrt(l / g) * ellipk(np.sin(phi0 / 2) **2)
+    T = 4 * np.sqrt(l / g) * ellipk(np.sin(phi0 / 2))
     return T
+
+
 
 def save_data(l_values, phi0_values, g):
     data = []
@@ -50,10 +54,11 @@ def calculate_and_save_data(a, b, l_values, g):
                     file.write(f"{phi0}\t{T}\n")
 
 # Get the bounds
-a_min = -np.pi / 2
-a_max = np.pi / 2
+print("Angle displacement: from 0 to 0.1745 radians")
+a_min = 0.0
+a_max = 0.1745
 b_min = 0.0
-b_max = np.pi / 2
+b_max = 0.1745
 
 a = input(f"Enter the lower bound for phi0 (hit Enter for {a_min}): ")
 if a == "":
@@ -82,6 +87,9 @@ else:
         except ValueError:
             print("Invalid value entered.")
             b = input(f"Enter the upper bound for phi0 ({b_max}): ")
+
+if a > b:
+    a, b = b, a
 
 # Get the number of l values from the user
 num_l = input("Enter the number of l values: ")
