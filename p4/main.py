@@ -53,7 +53,7 @@ def calculate_and_save_data(a, b, l_values, g):
                     file.write(f"{phi0}\t{T}\n")
 
 
-print("[bold cyan]Simple Pendulum Formula:[/bold cyan]")
+print("[bold cyan]Period of a Simple Pendulum Formula:[/bold cyan]")
 print(f"[bold]T[/bold] = 4 * sqrt([italic]l[/italic] / [italic]g[/italic]) * [italic]ellipk[/italic](sin([italic]phi0[/italic]/2))\n")
 print("[bold cyan]Where:[/bold cyan]")
 print(f"[bold]T[/bold] is the period of the pendulum")
@@ -66,7 +66,7 @@ a_min = 0.0
 a_max = 1.57
 b_min = 0.01
 b_max = np.pi/2
-print(f"\nAngle displacement range: 0 to [bold]half-pi[/bold] radians")
+print(f"\nAngle displacement range: 0 to [bold cyan]half-pi[/bold cyan] radians")
 
 a = input(f"Enter the lower bound for phi0 (hit Enter for {a_min}): ")
 if a == "":
@@ -98,6 +98,7 @@ else:
             if a == b: print("Error: a = b =", a)
             b = input(f"Enter the upper bound for phi0 ({b_max}): ")
 
+print(f"[italic]phi0[/italic]: from {a} to {b}")
 # Get the number of l values from the user
 num_l = input("Enter the number of l values: ")
 while True:
@@ -130,6 +131,4 @@ while len(l_values) < num_l:
 
 # Calculate and save the data
 calculate_and_save_data(a, b, l_values, 9.8)
-print("Plots are in the dir of a py file")
-
-
+print(f"[bold yellow]Plots are in the dir of a py file[/bold yellow]")
