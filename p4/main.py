@@ -100,16 +100,19 @@ else:
 
 print(f"[italic]phi0[/italic]: from {a} to {b}")
 # Get the number of l values from the user
-num_l = input("Enter the number of l values: ")
-while True:
-    try:
-        num_l = int(num_l)
-        if num_l <= 0:
-            raise ValueError
-        break
-    except ValueError:
-        print("Invalid value entered.")
-        num_l = input("Enter the number of l values: ")
+num_l = input("Enter the number of l values: (default=1) ")
+if num_l == "":
+    num_l = 1
+else:
+    while True:
+        try:
+            num_l = int(num_l)
+            if num_l <= 0:
+                raise ValueError
+            break
+        except ValueError:
+            print("Invalid value entered.")
+            num_l = input("Enter the number of l values: ")
 
 # Get the l values from the user
 l_values = []
