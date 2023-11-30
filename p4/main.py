@@ -2,12 +2,10 @@ import numpy as np
 from scipy.special import ellipk
 import matplotlib.pyplot as plt
 
-##  T = 4 * np.sqrt(l / g) * ellipk(np.sin(phi0 / 2)**2)  for large angles (>10grad)
 
 def calculate_period(phi0, l, g):
     T = 4 * np.sqrt(l / g) * ellipk(np.sin(phi0 / 2))
     return T
-
 
 
 def save_data(l_values, phi0_values, g):
@@ -81,15 +79,13 @@ else:
     while True:
         try:
             b = float(b)
-            if b < b_min or b > b_max or a > b:
+            if b < b_min or b > b_max or a >= b:
                 raise ValueError
             break
         except ValueError:
             print("Invalid value entered.")
+            if a == b: print("Error: a = b =", a)
             b = input(f"Enter the upper bound for phi0 ({b_max}): ")
-
-if a > b:
-    a, b = b, a
 
 # Get the number of l values from the user
 num_l = input("Enter the number of l values: ")
