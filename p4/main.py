@@ -67,7 +67,7 @@ a_min = 0.0
 a_max = 1.57
 b_min = 0.01
 b_max = np.pi/2
-print(f"\n[cyan]Give different valid values for angle displacement[/cyan]")
+print(f"\n[cyan]Give different valid values for angle displacement range[/cyan]")
 print(f"Angle displacement range: 0 to [bold cyan]half-pi[/bold cyan] radians")
 a = input(f"Enter the lower bound for phi0 (hit Enter for {a_min}): ")
 if a == "":
@@ -139,6 +139,6 @@ calculate_and_save_data(a, b, l_values, 9.8)
 print(f"[bold green]Success[/bold green]")
 print(f"[bold yellow]Output in the dir of a py file[/bold yellow]")
 print(f"Your data: 1.txt...")
-if num_l > 1:  print(f"upto {num_l}.txt")
+if num_l > 1:  print(f"\tupto {num_l}.txt")
 print(f"Your plots: all_in_one_plot.png, plot_[bold cyan]1[/bold cyan].png...")
-if num_l > 1:  print(f"upto  plot_[bold cyan]{num_l}[/bold cyan].png")
+if num_l > 1:  print(f"\tupto plot_[bold cyan]{num_l}[/bold cyan].png")
