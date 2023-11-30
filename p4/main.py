@@ -53,20 +53,20 @@ def calculate_and_save_data(a, b, l_values, g):
                     file.write(f"{phi0}\t{T}\n")
 
 
-print("[bold]Simple Pendulum Formula:[/bold]")
-print(f"T = 4 * sqrt(l / g) * ellipk(sin(phi0/2)\n")
-print("[bold]Where:[/bold]")
-print(f"T is the period of the pendulum")
-print("l is the length of the pendulum")
-print("g is the acceleration due to gravity")
-print("ellipk is the elliptic integral of the 1st kind")
-print("phi0 is the maximum angle of displacement")
+print("[bold cyan]Simple Pendulum Formula:[/bold cyan]")
+print(f"[bold]T[/bold] = 4 * sqrt([italic]l[/italic] / [italic]g[/italic]) * [italic]ellipk[/italic](sin([italic]phi0[/italic]/2))\n")
+print("[bold cyan]Where:[/bold cyan]")
+print(f"[bold]T[/bold] is the period of the pendulum")
+print("[italic]l[/italic] is the length of the pendulum")
+print("[italic]g[/italic] is the acceleration due to gravity")
+print("[italic]ellipk[/italic] is the elliptic integral of the 1st kind")
+print("[italic]phi0[/italic] is the maximum angle of displacement")
 # Get the bounds
-print("Angle displacement range: from 0 to pi/2 radians")
 a_min = 0.0
 a_max = 1.57
 b_min = 0.01
 b_max = np.pi/2
+print(f"\nAngle displacement range: 0 to [bold]half-pi[/bold] radians")
 
 a = input(f"Enter the lower bound for phi0 (hit Enter for {a_min}): ")
 if a == "":
@@ -82,6 +82,7 @@ else:
             print("Invalid value entered.")
             a = input(f"Enter the lower bound for phi0 ({a_min}): ")
 
+print(f"[bold]lower bound[/bold] is {a}")
 b = input(f"Enter the upper bound for phi0 (hit Enter for {b_max}): ")
 if b == "":
     b = b_max
