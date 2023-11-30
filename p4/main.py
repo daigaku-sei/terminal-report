@@ -1,6 +1,7 @@
 import numpy as np
 from scipy.special import ellipk
 import matplotlib.pyplot as plt
+from rich import print
 
 
 def calculate_period(phi0, l, g):
@@ -51,12 +52,21 @@ def calculate_and_save_data(a, b, l_values, g):
                 for phi0, T in l_data:
                     file.write(f"{phi0}\t{T}\n")
 
+
+print("[bold]Simple Pendulum Formula:[/bold]")
+print(f"T = 4 * sqrt(l / g) * ellipk(sin(phi0/2)\n")
+print("[bold]Where:[/bold]")
+print(f"T is the period of the pendulum")
+print("l is the length of the pendulum")
+print("g is the acceleration due to gravity")
+print("ellipk is the elliptic integral of the 1st kind")
+print("phi0 is the maximum angle of displacement")
 # Get the bounds
-print("Angle displacement: from 0 to 0.1745 radians")
+print("Angle displacement range: from 0 to pi/2 radians")
 a_min = 0.0
-a_max = 0.1745
-b_min = 0.0
-b_max = 0.1745
+a_max = 1.57
+b_min = 0.01
+b_max = np.pi/2
 
 a = input(f"Enter the lower bound for phi0 (hit Enter for {a_min}): ")
 if a == "":
