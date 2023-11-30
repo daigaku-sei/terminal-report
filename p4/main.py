@@ -138,6 +138,6 @@ while len(l_values) < num_l:
 calculate_and_save_data(a, b, l_values, 9.8)
 print(f"[bold green]Success[/bold green]")
 print(f"[bold yellow]Output in the dir of a py file[/bold yellow]")
-print(f"N = {num_l})
+print(f"N = {num_l}")
 print(f"data in 1.txt... [bold cyan]N[/bold cyan].txt")
 print(f"plots in all_in_one_plot.png, plot_[bold cyan]1[/bold cyan].png...plot_[bold cyan]N[/bold cyan].png")
