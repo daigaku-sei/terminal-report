@@ -94,8 +94,8 @@ else:
                 raise ValueError
             break
         except ValueError:
-            print("Invalid value entered.")
-            if a == b: print("Error: a = b =", a)
+            print(f"[red]Invalid value entered.[/red]")
+            if a == b: print(f"[red]Error[/red]: a = b =", a)
             b = input(f"Enter the upper bound for phi0 ({b_max}): ")
 
 print(f"[italic]phi0[/italic]: from {a} to {b}")
@@ -111,7 +111,7 @@ else:
                 raise ValueError
             break
         except ValueError:
-            print("Invalid value entered.")
+            print(f"[red]Invalid value entered.[/red]")
             num_l = input("Enter the number of l values: ")
 
 # Get the l values from the user
@@ -125,7 +125,7 @@ while len(l_values) < num_l:
                 raise ValueError
             break
         except ValueError:
-            print("Invalid value entered.")
+            print(f"[red]Invalid value entered.[/red]")
             l = input(f"Enter l value {len(l_values)+1}: ")
     if l not in l_values:
         l_values.append(l)
