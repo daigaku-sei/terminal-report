@@ -67,8 +67,8 @@ a_min = 0.0
 a_max = 1.57
 b_min = 0.01
 b_max = np.pi/2
-print(f"[cyan]Give different valid values for angle displacement[/cyan]")
-print(f"\nAngle displacement range: 0 to [bold cyan]half-pi[/bold cyan] radians")
+print(f"\n[cyan]Give different valid values for angle displacement[/cyan]")
+print(f"Angle displacement range: 0 to [bold cyan]half-pi[/bold cyan] radians")
 a = input(f"Enter the lower bound for phi0 (hit Enter for {a_min}): ")
 if a == "":
     a = a_min
@@ -101,7 +101,7 @@ else:
 
 print(f"[italic]phi0[/italic]: from {a} to {b}")
 # Get the number of l values from the user
-print(f"[cyan]Give different valid values for pendulum length[/cyan]")
+print(f"\n[cyan]Give different valid values for pendulum length[/cyan]")
 num_l = input("Enter the number of l values (default=2): ")
 if num_l == "":
     num_l = 2
@@ -138,6 +138,5 @@ while len(l_values) < num_l:
 calculate_and_save_data(a, b, l_values, 9.8)
 print(f"[bold green]Success[/bold green]")
 print(f"[bold yellow]Output in the dir of a py file[/bold yellow]")
-print(f"N = {num_l}")
-print(f"data in 1.txt... [bold cyan]N[/bold cyan].txt")
-print(f"plots in all_in_one_plot.png, plot_[bold cyan]1[/bold cyan].png...plot_[bold cyan]N[/bold cyan].png")
+print(f"Your data in 1.txt...{num_l}.txt")
+print(f"Your plots in all_in_one_plot.png, plot_[bold cyan]1[/bold cyan].png...plot_{num_l}.png")
