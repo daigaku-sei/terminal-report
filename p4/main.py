@@ -53,6 +53,7 @@ def calculate_and_save_data(a, b, l_values, g):
                     file.write(f"{phi0}\t{T}\n")
 
 print(f"[green]Welcome to F01 of familiarisation report![/green]")
+print(f"[green]Task[/green] is to collect data and make graphs")
 print("[bold yellow]Period of a Simple Pendulum Formula:[/bold yellow]")
 print(f"[bold]T[/bold] = 4 * sqrt([italic]l[/italic] / [italic]g[/italic]) * [italic]ellipk[/italic](sin([italic]phi0[/italic]/2))\n")
 print("[bold cyan]Where:[/bold cyan]")
@@ -67,7 +68,7 @@ a_max = 1.57
 b_min = 0.01
 b_max = np.pi/2
 print(f"\nAngle displacement range: 0 to [bold cyan]half-pi[/bold cyan] radians")
-
+print(f"[cyan]Give different valid values for angle displacement[/cyan]")
 a = input(f"Enter the lower bound for phi0 (hit Enter for {a_min}): ")
 if a == "":
     a = a_min
@@ -79,11 +80,11 @@ else:
                 raise ValueError
             break
         except ValueError:
-            print("Invalid value entered.")
-            a = input(f"Enter the lower bound for phi0 ({a_min}): ")
+            print(f"[red]Invalid value entered.[/red]")
+            a = input(f"Enter the lower bound for phi0 >= {a_min}: ")
 
 print(f"[bold]lower bound[/bold] is {a}")
-b = input(f"Enter the upper bound for phi0 (hit Enter for {b_max}): ")
+b = input(f"Enter the upper bound for phi0 (default={b_max}): ")
 if b == "":
     b = b_max
 else:
@@ -96,13 +97,13 @@ else:
         except ValueError:
             print(f"[red]Invalid value entered.[/red]")
             if a == b: print(f"[red]Error[/red]: a = b =", a)
-            b = input(f"Enter the upper bound for phi0 ({b_max}): ")
+            b = input(f"Enter the upper bound for phi0 <= {b_max}: ")
 
 print(f"[italic]phi0[/italic]: from {a} to {b}")
 # Get the number of l values from the user
-num_l = input("Enter the number of l values: (default=1) ")
+num_l = input("Enter the number of l values (default=2): ")
 if num_l == "":
-    num_l = 1
+    num_l = 2
 else:
     while True:
         try:
@@ -135,4 +136,6 @@ while len(l_values) < num_l:
 # Calculate and save the data
 calculate_and_save_data(a, b, l_values, 9.8)
 print(f"[bold green]Success[/bold green]")
-print(f"[bold yellow]Plots are in the dir of a py file[/bold yellow]")
+print(f"[bold yellow]Output in the dir of a py file[/bold yellow]")
+print(f"data in 1.txt...")
+print(f"plots in all_in_one_plot.png, plot_1.png...")
