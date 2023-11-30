@@ -67,8 +67,8 @@ a_min = 0.0
 a_max = 1.57
 b_min = 0.01
 b_max = np.pi/2
-print(f"\nAngle displacement range: 0 to [bold cyan]half-pi[/bold cyan] radians")
 print(f"[cyan]Give different valid values for angle displacement[/cyan]")
+print(f"\nAngle displacement range: 0 to [bold cyan]half-pi[/bold cyan] radians")
 a = input(f"Enter the lower bound for phi0 (hit Enter for {a_min}): ")
 if a == "":
     a = a_min
@@ -101,6 +101,7 @@ else:
 
 print(f"[italic]phi0[/italic]: from {a} to {b}")
 # Get the number of l values from the user
+print(f"[cyan]Give different valid values for pendulum length[/cyan]")
 num_l = input("Enter the number of l values (default=2): ")
 if num_l == "":
     num_l = 2
