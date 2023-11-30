@@ -52,8 +52,8 @@ def calculate_and_save_data(a, b, l_values, g):
                 for phi0, T in l_data:
                     file.write(f"{phi0}\t{T}\n")
 
-
-print("[bold cyan]Period of a Simple Pendulum Formula:[/bold cyan]")
+print(f"[green]Welcome to F01 of familiarisation report![/green]")
+print("[bold yellow]Period of a Simple Pendulum Formula:[/bold yellow]")
 print(f"[bold]T[/bold] = 4 * sqrt([italic]l[/italic] / [italic]g[/italic]) * [italic]ellipk[/italic](sin([italic]phi0[/italic]/2))\n")
 print("[bold cyan]Where:[/bold cyan]")
 print(f"[bold]T[/bold] is the period of the pendulum")
