@@ -143,5 +143,5 @@ if num_l > 1:  print(f"\tupto {num_l}.txt")
 print(f"Your plots: plot_[bold cyan]1[/bold cyan].png, all_in_one_plot.png")
 if num_l > 1:  print(f"\tupto plot_[bold cyan]{num_l}[/bold cyan].png")
 
-print( f"min(T) = {calculate_period(min(a,b), min(l_values),g)} )
-print( f"max(T) = {calculate_period(max(a,b), max(l_values),g)} )
+print( f"min(T) = {calculate_period(min(a,b), min(l_values),g)}" )
+print( f"max(T) = {calculate_period(max(a,b), max(l_values),g)}" )
