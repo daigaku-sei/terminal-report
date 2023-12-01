@@ -11,7 +11,7 @@ mu = 430
 
 print(f"[green]Welcome to Program 5 of familiarisation report![/green]")
 print(f"[yellow]Dynamics of a material point[/yellow]")
-print(f"[bold]Free descent of a cable car[/bold]")
+print(f"[bold]Free descent of a cable car, check layout [green]FORCES.png[/green][/bold]")
 print(f"[green]Task[/green] is to collect data and make graphs")
 
 print("[bold yellow]System:[/bold yellow]")
