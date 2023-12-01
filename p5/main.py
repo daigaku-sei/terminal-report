@@ -123,4 +123,5 @@ plt.tight_layout()
 
 output = 'p5.png'
 plt.savefig(output)
-print(f"Plot saved: [bold cyan]{output}[/bold cyan]")
+print(f"[bold green]Success![/bold green]")
+print(f"[bold yellow]Plot saved: [bold yellow][bold green]{output}[/bold green]")
