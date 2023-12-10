@@ -1,4 +1,4 @@
-import math
+from math import cos, sin, radians
 import matplotlib.pyplot as plt
 from rich import print
 
@@ -9,41 +9,43 @@ g = 9.8
 U = 3
 mu = 430
 
-print(f"[green]Welcome to Program 5 of familiarisation report![/green]")
-print(f"[yellow]Dynamics of a material point[/yellow]")
-print(f"[bold]Free descent of a cable car, check layout [green]FORCES.png[/green][/bold]")
-print(f"[green]Task[/green] is to collect data and make graphs")
+print(f"\n[green]Welcome to Program 5 of familiarisation report![/green]")
+print(f"-----[yellow]Dynamics of a material point[/yellow]-----")
+print(f"[bold]Free descent of a cable car, forces' layout in [green]FORCES.png[/green][/bold]")
+print(f"[green]Task[/green] is to collect data and make graphs\n")
 
-print("[bold yellow]System:[/bold yellow]")
-print(f"a_x = -mu * vel_x / m + mu*U*math.cos(math.radians(5))/m + g* math.sin(math.radians(10))\n\
-a_y = -mu * vel_y / m - k  * y / m - mu*U*math.sin(math.radians(5))/m - g* math.cos(math.radians(10))")
+print("-----[bold] System [/bold]-----")
+print(f"a_x = -mu * vel_x / m + mu*U*cos(radians(5)) / m + g*sin(radians(10))\n\
+a_y = -mu * vel_y / m - k  * y / m - mu*U*sin(radians(5))/m - g*cos(radians(10))\n")
 
-print("[bold cyan]Where const(standard units):[/bold cyan]")
+print("[bold yellow]***[/bold yellow]")
 print(f"[italic]mu[/italic] is the coefficient of friction = {mu}")
 print(f"[italic]m[/italic] is mass = {m}")
 print(f"[italic]U[/italic] is an enviromental force = {U}")
 print(f"[italic]g[/italic] is the acceleration due to gravity = {g}")
-print(f"[italic]k[/italic] is a constant factor characteristic of the spring = {k}")
+print(f"[italic]radians(5); radians(10)[/italic] are angles [italic]U; g, v_0[/italic]")
+print(f"[italic]k[/italic] is a constant factor characteristic of the spring = {k}\n")
+print("[bold yellow]-----[/bold yellow]")
 
 a_lambda = 1
 
 # Calculate the typical transition time
-tx = abs(  (-a_lambda - 0) / (mu/m)  )
-tt = abs(  (-a_lambda - k/m) / (mu/m)  )
-print(f"[bold]The typical transition time is:[/bold] {max(tx, tt)}")
+tx = abs(  m * (-a_lambda - 0) / mu  )
+tt = abs(  (-a_lambda * m - k) / mu  )
+print(f"[bold]The typical transition time is:[/bold] {max(tx, tt)}\n")
 
 # target
-koeff = 0.14
-target_y = (- mu*U*math.sin(math.radians(5))/m - g* math.cos(math.radians(10)) ) *m / k
-target_vx = mu*U*math.cos(math.radians(5))/m + g* math.sin(math.radians(10)) * m / mu
-print(f"[bold]Targets for y, vx:[/bold] {target_y, target_vx}")
+target_y = (- mu*U*sin(radians(5))/m - g* cos(radians(10)) ) *m / k
+target_vx = mu*U*cos(radians(5))/m + g* sin(radians(10)) * m / mu
+print(f"[blue]Targets[/blue] for y, vx: {target_y, target_vx}\n")
 
 # Initial conditions
+koeff = 0.14
 x = 0
-y = koeff * (- mu*U*math.sin(math.radians(5))/m - g* math.cos(math.radians(10)) ) *m /k
-vel_x = -1.8 * math.sin(math.radians(10))
-vel_y = 1.8 * math.cos(math.radians(10))
-print(f"[yellow]Initial conditions:[/yellow]")
+y = koeff * (- mu*U*sin(radians(5))/m - g* cos(radians(10)) ) *m /k
+vel_x = -1.8 * sin(radians(10))
+vel_y = 1.8 * cos(radians(10))
+print(f"[yellow]Initial conditions are misaligned by [/yellow]{koeff}")
 print(f"x0 = 0, y0 = {y}, vx0 = {vel_x}, vy0 = {vel_y}")
 
 # Time step and duration
@@ -60,8 +62,8 @@ position_vy = []
 # Simulation loop
 for t in range(int(duration / dt)):
     # Calculate acceleration
-    a_x = -mu * vel_x / m + mu*U*math.cos(math.radians(5))/m + g* math.sin(math.radians(10))
-    a_y = -mu * vel_y / m - k  * y / m - mu*U*math.sin(math.radians(5))/m - g* math.cos(math.radians(10))
+    a_x = -mu * vel_x / m + mu*U*cos(radians(5))/m + g* sin(radians(10))
+    a_y = -mu * vel_y / m - k  * y / m - mu*U*sin(radians(5))/m - g* cos(radians(10))
 
     # Update velocity
     vel_x += a_x * dt
@@ -81,7 +83,7 @@ for t in range(int(duration / dt)):
 # Plotting the equilibrium states
 plt.figure(figsize=(12, 4))
 
-# Equilibrium state for y and vy
+# state for y and vy
 plt.subplot(131)
 plt.plot(time, [target_y] * len(time), 'b--', label=f'y = {target_y:.2}')
 plt.plot(time, position_y, label='Calculated y')
@@ -91,11 +93,11 @@ plt.plot(time, position_vy, label='Calculated vy')
 
 plt.xlabel('Time (s)')
 plt.ylabel('y, vy')
-plt.title('Equilibrium State for y')
+plt.title('y-axis')
 plt.legend()
 plt.grid(True)
 
-# Equilibrium state for x
+# state for x and vx
 plt.subplot(132)
 plt.plot(time, [target_vx * t for t in time], 'b--', label=f'x = {target_vx:.3} * t')
 plt.plot(time, position_x, label='Calculated x')
@@ -105,17 +107,17 @@ plt.plot(time, position_vx, label='Calculated vx')
 
 plt.xlabel('Time (s)')
 plt.ylabel('x, vx')
-plt.title('Equilibrium State for x')
+plt.title('x-axis')
 plt.legend()
 plt.grid(True)
 
-# Equilibrium state for y(x)
+# state for y(x)
 plt.subplot(133)
 plt.plot([target_vx * t for t in time], [target_y] * len(time), 'r--', label='y(x)')
 plt.plot(position_x, position_y, label='Calculated y(x)')
 plt.xlabel('x')
 plt.ylabel('y')
-plt.title('Equilibrium State for y(x)')
+plt.title('y(x)')
 plt.legend()
 plt.grid(True)
 
@@ -123,5 +125,5 @@ plt.tight_layout()
 
 output = 'p5.png'
 plt.savefig(output)
-print(f"[bold green]Success![/bold green]")
+print(f"\n[bold green]Success![/bold green]")
 print(f"[bold yellow]Plot saved: [bold yellow][bold green]{output}[/bold green]")
