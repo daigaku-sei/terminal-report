@@ -1,0 +1,41 @@
+def find_largest_area(emoji_matrix, emoji):
+    # Convert emoji matrix to binary matrix
+    binary_matrix = np.where(emoji_matrix == emoji, 1, 0)
+
+    # Label connected components manually
+    labeled_matrix = np.zeros_like(binary_matrix)
+    current_label = 1
+
+    for i in range(binary_matrix.shape[0]):
+        for j in range(binary_matrix.shape[1]):
+            if binary_matrix[i, j] == 1 and labeled_matrix[i, j] == 0:
+                stack = [(i, j)]
+                labeled_matrix[i, j] = current_label
+
+                while stack:
+                    x, y = stack.pop()
+
+                    neighbors = [(x-1, y), (x+1, y), (x, y-1), (x, y+1)]
+
+                    for neighbor in neighbors:
+                        nx, ny = neighbor
+
+                        if 0 <= nx < binary_matrix.shape[0] and 0 <= ny < binary_matrix.shape[1]:
+                            if binary_matrix[nx, ny] == 1 and labeled_matrix[nx, ny] == 0:
+                                stack.append((nx, ny))
+                                labeled_matrix[nx, ny] = current_label
+
+                current_label += 1
+
+    # Check if there are any labeled areas
+    num_labels = current_label - 1
+    if num_labels == 0:
+        return 0
+
+    # Count the size of each labeled area
+    area_sizes = np.bincount(labeled_matrix.flatten())[1:]
+
+    # Find the largest area
+    largest_area_size = np.max(area_sizes)
+
+    return largest_area_size
